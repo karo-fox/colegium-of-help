@@ -7,8 +7,10 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Collegium_of_Help.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Collegium of Help - A Dungeons and Dragons helper app">
-		
+        Title="Collegium of Help - A Dungeons and Dragons helper app"
+		TransparencyLevelHint="AcrylicBlur"
+		Background="Transparent">
+
 	<views:MainView />
         
 </Window>
