@@ -14,13 +14,17 @@
 	<!-- Ref: https://docs.avaloniaui.net/docs/reference/controls/splitview -->
 	<SplitView IsPaneOpen="True" 
 			 DisplayMode="CompactInline"
-			 OpenPaneLength="100"
+			 OpenPaneLength="75"
 			   x:DataType="vm:MainViewModel"
 			 Content="{Binding ContentViewModel}">
 		<SplitView.Pane>
 			<StackPanel>
-				<Button x:CompileBindings="False" Command="{Binding $parent[SplitView].DataContext.ChangeToHome}">Home</Button>
-				<Button x:CompileBindings="False" Command="{Binding $parent[SplitView].DataContext.ChangeToCharacters}">Characters</Button>
+				<Button x:CompileBindings="False" Command="{Binding $parent[SplitView].DataContext.ChangeToHome}">
+					<Image Source="{SvgImage /Assets/home.svg}"></Image>
+				</Button>
+				<Button x:CompileBindings="False" Command="{Binding $parent[SplitView].DataContext.ChangeToCharacters}">
+					<Image Source="{SvgImage /Assets/characters.svg}"></Image>
+				</Button>
 			</StackPanel>
 		</SplitView.Pane>
 		
