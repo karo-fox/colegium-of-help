@@ -19,10 +19,10 @@
 			 Content="{Binding ContentViewModel}">
 		<SplitView.Pane>
 			<StackPanel>
-				<Button x:CompileBindings="False" Command="{Binding $parent[SplitView].DataContext.ChangeToHome}">
+				<Button x:CompileBindings="False" Command="{Binding $parent[SplitView].DataContext.ChangeView}" CommandParameter="Home">
 					<Image Source="{SvgImage /Assets/home.svg}"></Image>
 				</Button>
-				<Button x:CompileBindings="False" Command="{Binding $parent[SplitView].DataContext.ChangeToCharacters}">
+				<Button x:CompileBindings="False" Command="{Binding $parent[SplitView].DataContext.ChangeView}" CommandParameter="Characters">
 					<Image Source="{SvgImage /Assets/characters.svg}"></Image>
 				</Button>
 			</StackPanel>
