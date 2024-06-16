@@ -116,7 +116,7 @@ create table if not exists background_equipment(
 	equipment_id int not null,
     background_id int not null,
     foreign key (equipment_id) references equipment(id),
-    foreign key (background_id) references background(id)
+    foreign key (background_id) references backgrounds(id)
 );
 
 create table if not exists class_spells(
