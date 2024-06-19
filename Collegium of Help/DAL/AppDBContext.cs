@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using Collegium_of_Help.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Collegium_of_Help.Models.Entities;
+namespace Collegium_of_Help.DAL;
 
-public partial class ColegiumofhelpdbContext : DbContext
+public partial class AppDBContext : DbContext
 {
-    public ColegiumofhelpdbContext()
+    private const string CONNECTION_STRING_NAME = "CollegiumOfHelpConnection";
+    public AppDBContext()
     {
     }
 
-    public ColegiumofhelpdbContext(DbContextOptions<ColegiumofhelpdbContext> options)
+    public AppDBContext(DbContextOptions<AppDBContext> options)
         : base(options)
     {
     }
@@ -49,9 +52,8 @@ public partial class ColegiumofhelpdbContext : DbContext
 
     public virtual DbSet<SubclassSpell> SubclassSpells { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySQL("Server=127.0.0.1;Port=3306;Database=colegiumofhelpdb;Uid=root;Pwd=root;");
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+        => options.UseMySQL(ConfigurationManager.ConnectionStrings[CONNECTION_STRING_NAME]?.ConnectionString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
