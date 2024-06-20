@@ -12,10 +12,13 @@ namespace Collegium_of_Help.ViewModels
         public string IconPath { get; set; }
         public UserControl Content { get; set; }
 
-        public TabItemViewModel(string iconPath, UserControl content)
+        public string TabName {  get; set; }
+
+        public TabItemViewModel(string iconPath, UserControl content, string tabName)
         {
             IconPath = iconPath;
             Content = content;
+            TabName = tabName; 
         }
     }
 }

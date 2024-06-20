@@ -11,13 +11,16 @@
 		<!-- This only sets the DataContext for the previewer in an IDE,
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
 	</Design.DataContext>
-	<!-- Ref: https://docs.avaloniaui.net/docs/reference/controls/splitview -->
+	
 	<TabControl ItemsSource="{Binding}" TabStripPlacement="Left">
 		<TabControl.ItemTemplate>
 			<DataTemplate x:DataType="vm:TabItemViewModel">
-				<Panel Height="50" Width="50">
-					<Svg Path="{Binding IconPath}" />
-				</Panel>
+				<StackPanel Orientation="Horizontal">
+					<Panel Height="20" Width="20" Margin="10 10 10 10">
+						<Svg Path="{Binding IconPath}" />
+					</Panel>
+					<TextBlock Text="{Binding TabName}" VerticalAlignment="Center" />
+				</StackPanel>
 			</DataTemplate>
 		</TabControl.ItemTemplate>
 		<TabControl.ContentTemplate >
