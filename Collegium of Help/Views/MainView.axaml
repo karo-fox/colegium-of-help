@@ -7,26 +7,23 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.MainView"
              x:DataType="vm:MainViewModel">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-  </Design.DataContext>
+	</Design.DataContext>
 	<!-- Ref: https://docs.avaloniaui.net/docs/reference/controls/splitview -->
-	<SplitView IsPaneOpen="True" 
-			 DisplayMode="CompactInline"
-			 OpenPaneLength="75"
-			   x:DataType="vm:MainViewModel"
-			 Content="{Binding ContentViewModel}">
-		<SplitView.Pane>
-			<StackPanel>
-				<Button x:CompileBindings="False" Command="{Binding $parent[SplitView].DataContext.ChangeView}" CommandParameter="Home">
-					<Image Source="{SvgImage /Assets/home.svg}"></Image>
-				</Button>
-				<Button x:CompileBindings="False" Command="{Binding $parent[SplitView].DataContext.ChangeView}" CommandParameter="Characters">
-					<Image Source="{SvgImage /Assets/characters.svg}"></Image>
-				</Button>
-			</StackPanel>
-		</SplitView.Pane>
-		
-	</SplitView>
+	<TabControl ItemsSource="{Binding}" TabStripPlacement="Left">
+		<TabControl.ItemTemplate>
+			<DataTemplate x:DataType="vm:TabItemViewModel">
+				<Panel Height="50" Width="50">
+					<Svg Path="{Binding IconPath}" />
+				</Panel>
+			</DataTemplate>
+		</TabControl.ItemTemplate>
+		<TabControl.ContentTemplate >
+			<DataTemplate x:DataType="vm:TabItemViewModel">
+				<ContentControl Content="{Binding Content}"/>
+			</DataTemplate>
+		</TabControl.ContentTemplate>
+	</TabControl>
 </UserControl>

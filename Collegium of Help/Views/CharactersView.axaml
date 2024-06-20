@@ -6,5 +6,5 @@
              mc:Ignorable="d" d:DesignWidth="725" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.CharactersView"
 			 x:DataType="vm:CharactersViewModel">
-  Placeholder text for Characters View
+	<TextBlock>Placeholder text for Characters View</TextBlock>
 </UserControl>
