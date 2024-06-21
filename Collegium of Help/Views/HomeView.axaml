@@ -3,10 +3,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:vm="using:Collegium_of_Help.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="725" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.HomeView"
 			 x:DataType="vm:HomeViewModel">
-	
-	Placeholder text for Home View
-	
+	<TextBlock>Placeholder text for Home View</TextBlock>
 </UserControl>
