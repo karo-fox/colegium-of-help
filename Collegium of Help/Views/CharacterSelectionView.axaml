@@ -2,7 +2,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:Collegium_of_Help.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Collegium_of_Help.Views.CharacterSelectionView">
-	<TextBlock>Welcome to Avalonia!</TextBlock>
+             x:Class="Collegium_of_Help.Views.CharacterSelectionView"
+			 x:DataType="vm:CharacterSelectionViewModel"
+			 >
+	<ItemsControl ItemsSource="{Binding Characters}">
+		<ItemsControl.ItemsPanel>
+			<ItemsPanelTemplate>
+				<WrapPanel />
+			</ItemsPanelTemplate>
+		</ItemsControl.ItemsPanel>
+		<ItemsControl.ItemTemplate>
+			<DataTemplate>
+				<StackPanel>
+					<TextBlock Text="{Binding Name}" />
+					<TextBlock Text="{Binding ClassName}" />
+					<TextBlock Text="{Binding RaceName}" />
+				</StackPanel>
+			</DataTemplate>
+		</ItemsControl.ItemTemplate>
+	</ItemsControl>
 </UserControl>

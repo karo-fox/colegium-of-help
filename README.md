@@ -5,13 +5,16 @@ DnD assistant application made as a project for university.
 ## Database
 First, you have to build the database for the app. Use `schema.sql` file to create the database.
 
-In `Collegium of Help` project directory, add `connections.config` file. The file contents should be:
+In `Collegium of Help.Desktop` project directory, add `App.config` file. The file contents should be:
 ```
-<connectionStrings>
-	<add name="CollegiumOfHelpConnection"
-	 providerName="MySql.EntityFrameworkCore "
-	 connectionString="Server=<server address>;Port=<port>;Database=colegiumofhelpdb;Uid=<user id>;Pwd=<password>;" />
-</connectionStrings>
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<connectionStrings>
+		<add name="CollegiumOfHelpConnection"
+		 providerName="MySql.EntityFrameworkCore "
+		 connectionString="Server=<server address>;Port=<port>;Database=colegiumofhelpdb;Uid=<user id>;Pwd=<password>;" />
+	</connectionStrings>
+</configuration>
 ```
 
 Replace <server address> with your database server address, e.g. 127.0.0.1.
