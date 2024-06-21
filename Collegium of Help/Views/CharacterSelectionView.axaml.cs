@@ -6,9 +6,9 @@ using ReactiveUI;
 
 namespace Collegium_of_Help.Views
 {
-    public partial class CharactersView : ReactiveUserControl<CharactersViewModel>
+    public partial class CharacterSelectionView : ReactiveUserControl<CharacterSelectionViewModel>
     {
-        public CharactersView()
+        public CharacterSelectionView()
         {
             this.WhenActivated(disposables => { });
             AvaloniaXamlLoader.Load(this);
