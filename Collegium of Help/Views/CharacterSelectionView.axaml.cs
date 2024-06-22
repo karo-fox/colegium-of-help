@@ -11,12 +11,11 @@ using System;
 
 namespace Collegium_of_Help.Views
 {
-    public partial class CharacterSelectionView : ReactiveUserControl<CharacterSelectionViewModel>
+    public partial class CharacterSelectionView : UserControl
     {
         public CharacterSelectionView()
         {
-            this.WhenActivated(disposables => { });
-            AvaloniaXamlLoader.Load(this);
+            InitializeComponent();
         }
     }
 }

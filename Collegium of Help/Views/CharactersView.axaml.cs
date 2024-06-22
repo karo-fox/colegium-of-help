@@ -6,12 +6,11 @@ using ReactiveUI;
 
 namespace Collegium_of_Help.Views
 {
-    public partial class CharactersView : ReactiveUserControl<CharactersViewModel>
+    public partial class CharactersView : UserControl
     {
         public CharactersView()
         {
-            this.WhenActivated(disposables => { });
-            AvaloniaXamlLoader.Load(this);
+            InitializeComponent();
         }
     }
 }

@@ -8,11 +8,5 @@
              mc:Ignorable="d" d:DesignWidth="725" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.CharactersView"
 			 x:DataType="vm:CharactersViewModel">
-	<Panel>
-		<rxui:RoutedViewHost Router="{Binding Router}">
-			<rxui:RoutedViewHost.ViewLocator>
-				<app:ReactiveViewLocator />
-			</rxui:RoutedViewHost.ViewLocator>
-		</rxui:RoutedViewHost>
-	</Panel>
+	<TransitioningContentControl Content="{Binding Content}" />
 </UserControl>

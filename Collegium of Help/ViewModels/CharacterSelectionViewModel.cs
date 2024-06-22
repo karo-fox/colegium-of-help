@@ -10,11 +10,9 @@ using Collegium_of_Help.DAL.Repositories;
 
 namespace Collegium_of_Help.ViewModels
 {
-    public class CharacterSelectionViewModel : ViewModelBase, IRoutableViewModel
+    public class CharacterSelectionViewModel : ViewModelBase
     {
-        public IScreen HostScreen { get; }
-        public string UrlPathSegment { get; } = Guid.NewGuid().ToString().Substring(0, 5);
-        public CharacterSelectionViewModel(IScreen host) => HostScreen = host;
+        public CharacterSelectionViewModel() { }
 
         private ObservableCollection<CharacterModel> _characters = CharactersRepository.GetAll();
 

@@ -1,21 +1,22 @@
-﻿using ReactiveUI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Avalonia.Controls;
+using ReactiveUI;
+using Collegium_of_Help.Views;
 
 namespace Collegium_of_Help.ViewModels
 {
-    public class CharactersViewModel : ViewModelBase, IScreen
+    public class CharactersViewModel : ViewModelBase
     {
-        public RoutingState Router { get; } = new RoutingState();
-        public ReactiveCommand<Unit, IRoutableViewModel> GoToCharacterSelection 
-            => ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new CharacterSelectionViewModel(this)));
+        private CharacterSelectionViewModel _characterSelectionViewModel = new CharacterSelectionViewModel();
+
+        private ViewModelBase _content;
+        public ViewModelBase Content
+        {
+            get => _content;
+            set => this.RaiseAndSetIfChanged(ref _content, value);
+        }
         public CharactersViewModel() 
         {
-            GoToCharacterSelection.Execute();
+            Content = _characterSelectionViewModel;
         }
     }
 }
