@@ -1,4 +1,5 @@
 ﻿using ReactiveUI;
+using Splat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,6 @@ namespace Collegium_of_Help.ViewModels
         public RoutingState Router { get; } = new RoutingState();
         public ReactiveCommand<Unit, IRoutableViewModel> GoToCharacterSelection 
             => ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new CharacterSelectionViewModel(this)));
-        public CharactersViewModel()
-        {
-            GoToCharacterSelection.Execute();
-        }
+        public CharactersViewModel() { }
     }
 }

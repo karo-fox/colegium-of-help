@@ -1,4 +1,5 @@
 ﻿using Avalonia.Collections;
+using Collegium_of_Help.Views;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -8,5 +9,21 @@ namespace Collegium_of_Help.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {
-    public MainViewModel() {}
+    private CharactersView _charactersView = new CharactersView { DataContext = new CharactersViewModel() };
+    private HomeView _homeView = new HomeView();
+
+    private TabItemViewModel[] _tabItems;
+
+    public TabItemViewModel[] TabItems
+    {
+        get => _tabItems;
+        set => this.RaiseAndSetIfChanged(ref _tabItems, value);
+    }
+    public MainViewModel() 
+    {
+        _tabItems = [
+            new TabItemViewModel(iconPath: "/Assets/home.svg", content: _homeView, tabName: "Home"),
+            new TabItemViewModel(iconPath: "/Assets/characters.svg", content: _charactersView, tabName: "Characters"),
+        ];
+    }
 }
