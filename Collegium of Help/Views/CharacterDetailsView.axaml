@@ -6,9 +6,89 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.CharacterDetailsView"
              x:DataType="vm:CharacterDetailsViewModel">
-	<Panel>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="3*"/>
+			<RowDefinition Height="5*"/>
+		</Grid.RowDefinitions>
 
-		<TextBlock Text="{Binding Name}" />
-		<Button Content="Back" Command="{Binding Host.GoToCharacterSelectionCommand}" />
-	</Panel>
+		<Button Grid.Row="0" Content="Back" Command="{Binding Host.GoToCharacterSelectionCommand}" />
+		<TextBlock Grid.Row="1" Text="{Binding Name}" />
+		
+		<Grid Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			
+			<TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding RaceName}" />
+			<TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding BackgroundName}" />
+			<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ClassName}" />
+			<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SubclassName}" />
+			<TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Hp}" />
+			<TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Level}" />
+		</Grid>
+
+		<ItemsControl Grid.Row="3" ItemsSource="{Binding Abilities}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<UniformGrid Rows="1" />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ItemsControl.ItemTemplate>
+				<DataTemplate x:DataType="vm:AbilityViewModel">
+					<StackPanel>
+						<TextBlock Text="{Binding Name}"/>
+						<TextBlock Text="{Binding ModifierString}"/>
+						<TextBlock Text="{Binding Score}"/>
+						<TextBlock Text="{Binding  SavingThrowString}"/>
+					</StackPanel>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
+
+		<TabControl Grid.Row="4">
+			<TabItem Header="Proficiencies">
+				<ScrollViewer>
+					<StackPanel>
+						<TextBlock Text="Tools Proficiency" />
+						<ItemsControl ItemsSource="{Binding Proficiencies}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding Text}" />
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+						<TextBlock Text="Language Proficiency" />
+						<ItemsControl ItemsSource="{Binding Languages}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding Text}" />
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</StackPanel>
+				</ScrollViewer>
+			</TabItem>
+			<TabItem Header="Equipment">
+				<ScrollViewer>
+					<ItemsControl ItemsSource="{Binding Equipment}">
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding Name}" />
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+				</ScrollViewer>
+			</TabItem>
+		</TabControl>
+	</Grid>
 </UserControl>
