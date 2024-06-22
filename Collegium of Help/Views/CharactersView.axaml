@@ -10,11 +10,8 @@
 			 x:DataType="vm:CharactersViewModel">
 	<Panel>
 		<rxui:RoutedViewHost Router="{Binding Router}">
-			<rxui:RoutedViewHost.DefaultContent>
-				<TextBlock Text="Default" />
-			</rxui:RoutedViewHost.DefaultContent>
 			<rxui:RoutedViewHost.ViewLocator>
-				<app:CharacterViewLocator />
+				<app:ReactiveViewLocator />
 			</rxui:RoutedViewHost.ViewLocator>
 		</rxui:RoutedViewHost>
 	</Panel>

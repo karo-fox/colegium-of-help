@@ -13,7 +13,7 @@ namespace Collegium_of_Help.ViewModels
         public RoutingState Router { get; } = new RoutingState();
         public ReactiveCommand<Unit, IRoutableViewModel> GoToCharacterSelection 
             => ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new CharacterSelectionViewModel(this)));
-        public CharactersViewModel()
+        public CharactersViewModel() 
         {
             GoToCharacterSelection.Execute();
         }

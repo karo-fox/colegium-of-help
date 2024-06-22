@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Collegium_of_Help
 {
-    public class CharacterViewLocator : ReactiveUI.IViewLocator
+    public class ReactiveViewLocator : ReactiveUI.IViewLocator
     {
         public IViewFor ResolveView<T>(T viewModel, string contract = null) => viewModel switch
         {
