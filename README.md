@@ -17,8 +17,8 @@ In `Collegium of Help.Desktop` project directory, add `App.config` file. The fil
 </configuration>
 ```
 
-Replace `<server address>` with your database server address, e.g. 127.0.0.1.
+Replace <server address> with your database server address, e.g. 127.0.0.1.
 
-Replace `<port>` with the port your database is available on.
+Replace <port> with the port your database is available on.
 
-Replace `<uid>` and `<password>` with your database credentials.
+Replace <uid> and <password> with your database credentials.
