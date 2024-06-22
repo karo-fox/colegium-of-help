@@ -20,6 +20,7 @@
 						<TextBlock Text="{Binding Name}" />
 						<TextBlock Text="{Binding ClassName}" />
 						<TextBlock Text="{Binding RaceName}" />
+						<Button x:Name="CharacterDetails" Content="View" Command="{Binding $parent[ItemsControl].((vm:CharacterSelectionViewModel)DataContext).Host.GoToCharacterDetailsCommand}" CommandParameter="{Binding .}"/>
 					</StackPanel>
 				</DataTemplate>
 			</ItemsControl.ItemTemplate>

@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace Collegium_of_Help.Views
 {
-    public partial class CharacterDetails : UserControl
+    public partial class CharacterDetailsView : UserControl
     {
-        public CharacterDetails()
+        public CharacterDetailsView()
         {
             InitializeComponent();
         }

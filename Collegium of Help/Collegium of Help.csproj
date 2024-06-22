@@ -27,10 +27,4 @@
     </PackageReference>
     <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.2" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Views\CharacterDetailsView.axaml.cs">
-      <DependentUpon>CharacterDetailsView.axaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
 </Project>

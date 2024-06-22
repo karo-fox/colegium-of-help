@@ -2,7 +2,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:Collegium_of_Help.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Collegium_of_Help.Views.CharacterDetails">
-  Welcome to Avalonia!
+             x:Class="Collegium_of_Help.Views.CharacterDetailsView"
+             x:DataType="vm:CharacterDetailsViewModel">
+	<Panel>
+
+		<TextBlock Text="{Binding Name}" />
+		<Button Content="Back" Command="{Binding Host.GoToCharacterSelectionCommand}" />
+	</Panel>
 </UserControl>

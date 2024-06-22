@@ -12,7 +12,9 @@ namespace Collegium_of_Help.ViewModels
 {
     public class CharacterSelectionViewModel : ViewModelBase
     {
-        public CharacterSelectionViewModel() { }
+        private CharactersViewModel _host;
+        public CharactersViewModel Host { get => _host; }
+        public CharacterSelectionViewModel(CharactersViewModel host) => _host = host;
 
         private ObservableCollection<CharacterModel> _characters = CharactersRepository.GetAll();
 
