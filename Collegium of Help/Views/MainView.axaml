@@ -12,7 +12,7 @@
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
 	</Design.DataContext>
 	
-	<TabControl ItemsSource="{Binding TabItems}" TabStripPlacement="Left">
+	<TabControl ItemsSource="{Binding}" TabStripPlacement="Left">
 		<TabControl.ItemTemplate>
 			<DataTemplate x:DataType="vm:TabItemViewModel">
 				<StackPanel Orientation="Horizontal">
