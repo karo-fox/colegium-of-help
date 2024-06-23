@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:Collegium_of_Help.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Collegium_of_Help.Views.DatabaseBrowseBackgroundsView"
+			 x:DataType="vm:DatabaseBackgroundsViewModel">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<ListBox Grid.Column="0" ItemsSource="{Binding Backgrounds}" SelectedIndex="{Binding SelectedIndex}">
+			
+		</ListBox>
+		<Grid Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+			<TextBox IsEnabled="False" Text="{Binding BackgroundName}" Grid.Row="0"></TextBox>
+			<TextBox IsEnabled="False" Text="{Binding BackgroundProficiencies}" Grid.Row="1"></TextBox>
+			<TextBox IsEnabled="False" Text="{Binding BackgroundFeature}" Grid.Row="2"></TextBox>
+			<TextBox IsEnabled="False" Text="{Binding BackgroundSource}" Grid.Row="3"></TextBox>
+		</Grid>
+	</Grid>
+</UserControl>

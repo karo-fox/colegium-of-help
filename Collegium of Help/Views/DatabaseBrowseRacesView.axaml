@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:Collegium_of_Help.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Collegium_of_Help.Views.DatabaseBrowseRacesView"
+			 x:DataType="vm:DatabaseRacesViewModel">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		<ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Races}" SelectedIndex="{Binding SelectedRace}">
+			
+		</ListBox>
+		<Grid Grid.Row="0" Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+			<TextBox IsEnabled="False" Grid.Row="0" Text="{Binding RaceName}"></TextBox>
+			<TextBox IsEnabled="False" Grid.Row="1" Text="{Binding Size}"></TextBox>
+			<TextBox IsEnabled="False" Grid.Row="2" Text="{Binding Speed}"></TextBox>
+			<TextBox IsEnabled="False" Grid.Row="3" Text="{Binding Languages}"></TextBox>
+			<TextBox IsEnabled="False" Grid.Row="4" Text="{Binding RaceSource}"></TextBox>
+		</Grid>
+		<ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding RacialTraits}" SelectedIndex="{Binding SelectedRaceAbility}">
+			
+		</ListBox>
+		<Grid Grid.Row="1" Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+			<TextBox IsEnabled="False" Grid.Row="0" Text="{Binding AbilityName}"></TextBox>
+			<TextBox IsEnabled="False" Grid.Row="1" Text="{Binding Description}"></TextBox>
+			<TextBox IsEnabled="False" Grid.Row="2" Text="{Binding Refresh}"></TextBox>
+		</Grid>
+	</Grid>
+</UserControl>

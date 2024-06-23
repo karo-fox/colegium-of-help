@@ -28,4 +28,24 @@ public partial class Spell
     public int SourceBook { get; set; }
 
     public virtual Source SourceBookNavigation { get; set; } = null!;
+
+    public Spell(int id, string name, string level, string school, string castingTime, string spellRange, string components, string duration, bool concentration, string? savingThrow, int sourceBook)
+    {
+        Id = id;
+        Name = name;
+        Level = level;
+        School = school;
+        CastingTime = castingTime;
+        SpellRange = spellRange;
+        Components = components;
+        Duration = duration;
+        Concentration = concentration;
+        SavingThrow = savingThrow;
+        SourceBook = sourceBook;
+    }
+
+    public override string ToString()
+    {
+        return $"{Name}";
+    }
 }

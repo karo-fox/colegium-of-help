@@ -20,4 +20,14 @@ public partial class Source
     public virtual ICollection<Spell> Spells { get; set; } = new List<Spell>();
 
     public virtual ICollection<Subclass> Subclasses { get; set; } = new List<Subclass>();
+
+    public Source(int id, string name)
+    {
+        Id = id;
+        Name = name;
+    }
+    public override string ToString()
+    {
+        return $"{Id}: {Name}";
+    }
 }

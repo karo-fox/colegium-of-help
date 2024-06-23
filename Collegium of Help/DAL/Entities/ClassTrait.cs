@@ -16,4 +16,9 @@ public partial class ClassTrait
     public int Level { get; set; }
 
     public bool Optional { get; set; }
+
+    public override string ToString()
+    {
+        return $"{Name}";
+    }
 }

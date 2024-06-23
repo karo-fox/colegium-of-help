@@ -24,4 +24,22 @@ public partial class Equipment
     public int SourceBook { get; set; }
 
     public virtual Source SourceBookNavigation { get; set; } = null!;
+
+    public Equipment(int id, string name, string description, string rarity, float weight, string cost, bool magic, string? alignment, int sourceBook)
+    {
+        Id = id;
+        Name = name;
+        Description = description;
+        Rarity = rarity;
+        Weight = weight;
+        Cost = cost;
+        Magic = magic;
+        Alignment = alignment;
+        SourceBook = sourceBook;
+    }
+
+    public override string ToString()
+    {
+        return $"{Name}";
+    }
 }

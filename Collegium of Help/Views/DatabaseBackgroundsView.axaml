@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Collegium_of_Help.Views.DatabaseBackgroundsView">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		<StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Orientation="Horizontal">
+			<TextBlock Text="Wybierz: "></TextBlock>
+			<ComboBox></ComboBox>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
+			<TextBlock Text="Nazwa: "></TextBlock>
+			<TextBox></TextBox>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
+			<TextBlock Text="Biegłości: "></TextBlock>
+			<TextBox></TextBox>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Orientation="Horizontal">
+			<TextBlock TextWrapping="WrapWithOverflow" Text="Korzyść: "></TextBlock>
+			<TextBox></TextBox>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4" Orientation="Horizontal">
+			<TextBlock Text="Źródło: "></TextBlock>
+			<ComboBox></ComboBox>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" Orientation="Horizontal">
+			<Button Content="Dodaj"></Button>
+			<Button Content="Modyfikuj"></Button>
+			<Button Content="Usuń"></Button>
+		</StackPanel>
+	</Grid>
+</UserControl>

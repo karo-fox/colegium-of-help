@@ -22,4 +22,19 @@ public partial class Race
     public virtual ICollection<RacialTrait> RacialTraits { get; set; } = new List<RacialTrait>();
 
     public virtual Source SourceBookNavigation { get; set; } = null!;
+
+    public Race(int id, string name, string? size, int speed, string langauges, int sourceBook)
+    {
+        Id = id;
+        Name = name;
+        Size = size;
+        Speed = speed;
+        Langauges = langauges;
+        SourceBook = sourceBook;
+    }
+
+    public override string ToString()
+    {
+        return $"{Name}";
+    }
 }

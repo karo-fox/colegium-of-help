@@ -1,0 +1,77 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Collegium_of_Help.Views.DatabaseSpellsView">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="9*"></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		
+		<Grid Grid.Column="0">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Text="Wybierz: " Grid.Row="0"></TextBlock>
+			<ComboBox Grid.Row="0" Grid.Column="1"></ComboBox>
+			<TextBlock Text="Nazwa: " Grid.Row="1"></TextBlock>
+			<TextBox Grid.Row="1" Grid.Column="1"></TextBox>
+			<TextBlock Text="Krąg: " Grid.Row="2"></TextBlock>
+			<ComboBox Grid.Row="2" Grid.Column="1"></ComboBox>
+			<TextBlock Text="Szkoła: " Grid.Row="3"></TextBlock>
+			<ComboBox Grid.Row="3" Grid.Column="1"></ComboBox>
+			<TextBlock Text="Opis: " Grid.Row="4"></TextBlock>
+			<TextBox Grid.Row="4" Grid.Column="1"></TextBox>
+			<TextBlock Text="Źródło: " Grid.Row="5"></TextBlock>
+			<ComboBox Grid.Row="5" Grid.Column="1"></ComboBox>
+		</Grid>
+		<Grid Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Text="Czas rzucania: " Grid.Row="0" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="0" Grid.Column="1"></ComboBox>
+			<TextBlock Text="Zasięg: " Grid.Row="1" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="1" Grid.Column="1"></ComboBox>
+			<TextBlock Text="Komponenty: " Grid.Row="2" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="2" Grid.Column="1"></ComboBox>
+			<TextBlock Text="Czas trwania: " Grid.Row="3" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="3" Grid.Column="1"></ComboBox>
+			<TextBlock Text="Wymaga rzutu obronnego: " Grid.Row="4" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="4" Grid.Column="1"></ComboBox>
+			<TextBlock Text="Wymaga koncentracji: " Grid.Row="5" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="5" Grid.Column="1"></ComboBox>
+		</Grid>
+		<StackPanel Grid.Row="1" Orientation="Horizontal">
+			<Button Content="Dodaj"></Button>
+			<Button Content="Modyfikuj"></Button>
+			<Button Content="Usuń"></Button>
+		</StackPanel>
+	</Grid>
+</UserControl>

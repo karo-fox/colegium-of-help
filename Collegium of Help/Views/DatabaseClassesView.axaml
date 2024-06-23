@@ -1,0 +1,150 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Collegium_of_Help.Views.DatabaseClassesView">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<Grid Grid.Column="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<TextBlock Grid.Row="0" Grid.Column="0">Wybierz: </TextBlock>
+			<ComboBox Grid.Row="0" Grid.Column="1"></ComboBox>
+			<TextBlock Grid.Row="1" Grid.Column="0">Nazwa: </TextBlock>
+			<TextBox Grid.Row="1" Grid.Column="1"></TextBox>
+			<TextBlock Grid.Row="2" Grid.Column="0">Budżet: </TextBlock>
+			<TextBox Grid.Row="2" Grid.Column="1"></TextBox>
+			<TextBlock Grid.Row="3" Grid.Column="0">Kość Wytrzymałości: </TextBlock>
+			<TextBox Grid.Row="3" Grid.Column="1"></TextBox>
+			<TextBlock Grid.Row="4" Grid.Column="0">Umiejętności: </TextBlock>
+			<TextBox Grid.Row="4" Grid.Column="1"></TextBox>
+			<TextBlock Grid.Row="5" Grid.Column="0">Biegłości: </TextBlock>
+			<TextBox Grid.Row="5" Grid.Column="1"></TextBox>
+			<TextBlock Grid.Row="6" Grid.Column="0">Źródło: </TextBlock>
+			<ComboBox Grid.Row="6" Grid.Column="1"></ComboBox>
+			<StackPanel Grid.Row="7" Grid.Column="0" Orientation="Horizontal">
+				<Button Content="Dodaj"></Button>
+				<Button Content="Modyfikuj"></Button>
+				<Button Content="Usuń"></Button>
+			</StackPanel>
+		</Grid>
+		<Grid Grid.Column="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<TextBlock Text="Wybierz czar: " Grid.Row="0" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="0" Grid.Column="1"></ComboBox>
+			<StackPanel Grid.Row="1" Orientation="Horizontal">
+				<Button Content="Dodaj (klasa)"></Button>
+				<Button Content="Modyfikuj"></Button>
+				<Button Content="Usuń"></Button>
+			</StackPanel>
+			<StackPanel Grid.Row="2" Orientation="Horizontal">
+				<Button Content="Dodaj (podklasa)"></Button>
+				<Button Content="Modyfikuj"></Button>
+				<Button Content="Usuń"></Button>
+			</StackPanel>
+
+			<TextBlock Text="Wybierz zdolność: " Grid.Row="3" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="3" Grid.Column="1"></ComboBox>
+			<TextBlock Text="Nazwa: " Grid.Row="4" Grid.Column="0"></TextBlock>
+			<TextBox Grid.Row="4" Grid.Column="1"></TextBox>
+			<TextBlock Text="Opis: " Grid.Row="5" Grid.Column="0"></TextBlock>
+			<TextBox Grid.Row="5" Grid.Column="1"></TextBox>
+			<TextBlock Text="Poziom: " Grid.Row="6" Grid.Column="0"></TextBlock>
+			<NumericUpDown Grid.Row="6" Grid.Column="1"></NumericUpDown>
+			<TextBlock Text="Obieralna: " Grid.Row="7" Grid.Column="0"></TextBlock>
+			<CheckBox Content="do wyboru?" Grid.Row="7" Grid.Column="1"></CheckBox>
+			<TextBlock Text="Odnowienie: " Grid.Row="8" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="8" Grid.Column="1"></ComboBox>
+			<StackPanel Grid.Row="9" Orientation="Horizontal">
+				<Button Content="Dodaj"></Button>
+				<Button Content="Modyfikuj"></Button>
+				<Button Content="Usuń"></Button>
+			</StackPanel>
+		</Grid>
+		<Grid Grid.Column="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<TextBlock Text="Wybierz podklasę: " Grid.Row="0" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="0" Grid.Column="1"></ComboBox>
+			<TextBlock Text="Nazwa: " Grid.Row="1" Grid.Column="0"></TextBlock>
+			<TextBox Grid.Row="1" Grid.Column="1"></TextBox>
+			<TextBlock Text="Źródło: " Grid.Row="2" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="2" Grid.Column="1"></ComboBox>
+			<StackPanel Grid.Row="3" Orientation="Horizontal">
+				<Button Content="Dodaj"></Button>
+				<Button Content="Modyfikuj"></Button>
+				<Button Content="Usuń"></Button>
+			</StackPanel>
+
+			<TextBlock Text="Wybierz zdolność: " Grid.Row="4" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="4" Grid.Column="1"></ComboBox>
+			<TextBlock Text="Nazwa: " Grid.Row="5" Grid.Column="0"></TextBlock>
+			<TextBox Grid.Row="5" Grid.Column="1"></TextBox>
+			<TextBlock Text="Opis: " Grid.Row="6" Grid.Column="0"></TextBlock>
+			<TextBox Grid.Row="6" Grid.Column="1"></TextBox>
+			<TextBlock Text="Poziom: " Grid.Row="7" Grid.Column="0"></TextBlock>
+			<NumericUpDown Grid.Row="7" Grid.Column="1"></NumericUpDown>
+			<TextBlock Text="Obieralna: " Grid.Row="8" Grid.Column="0"></TextBlock>
+			<CheckBox Content="do wyboru?" Grid.Row="8" Grid.Column="1"></CheckBox>
+			<TextBlock Text="Odnowienie: " Grid.Row="9" Grid.Column="0"></TextBlock>
+			<ComboBox Grid.Row="9" Grid.Column="1"></ComboBox>
+			<StackPanel Grid.Row="10" Orientation="Horizontal">
+				<Button Content="Dodaj"></Button>
+				<Button Content="Modyfikuj"></Button>
+				<Button Content="Usuń"></Button>
+			</StackPanel>
+		</Grid>
+
+	</Grid>
+</UserControl>
