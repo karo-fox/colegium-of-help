@@ -44,6 +44,6 @@
 			<TextBox IsEnabled="False" Grid.Row="0" Text="{Binding AbilityName}"></TextBox>
 			<TextBox IsEnabled="False" Grid.Row="1" Text="{Binding Description}"></TextBox>
 		</Grid>
-		<ListBox Grid.Column="2" Grid.Row="2"></ListBox>
+		<ListBox Grid.Column="2" Grid.Row="2" ItemsSource="{Binding Spells}"></ListBox>
 	</Grid>
 </UserControl>

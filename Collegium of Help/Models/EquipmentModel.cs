@@ -19,5 +19,18 @@ namespace Collegium_of_Help.Models
         {
             get => _equipment.Name;
         }
+
+        public string Description { get => _equipment.Description; }
+        public string Rarity {  get => _equipment.Rarity; }
+        public float Weight { get => _equipment.Weight; }
+        public string Cost { get => _equipment.Cost; }
+        public bool Magic { get => _equipment.Magic; }
+        public string Alignment { get => _equipment.Alignment; }
+        public int SourceBook {  get => _equipment.SourceBook; }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }
