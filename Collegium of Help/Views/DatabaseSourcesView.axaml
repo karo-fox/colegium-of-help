@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:Collegium_of_Help.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Collegium_of_Help.Views.DatabaseSourcesView"
+			 x:DataType="vm:DatabaseViewModel">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		<StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Orientation="Horizontal">
+			<TextBlock Grid.Row="0" Text="Wybierz: "></TextBlock>
+			<ComboBox Grid.Row="0" ItemsSource="{Binding Sources}"></ComboBox>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
+			<TextBlock Grid.Row="1" Text="Nazwa: "></TextBlock>
+			<TextBox Grid.Row="1"></TextBox>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
+			<Button Grid.Row="2" Content="Dodaj"></Button>
+			<Button Grid.Row="2" Content="Modyfikuj"></Button>
+			<Button Grid.Row="2" Content="Usuń"></Button>
+		</StackPanel>
+	</Grid>
+</UserControl>

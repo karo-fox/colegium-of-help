@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:Collegium_of_Help.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Collegium_of_Help.Views.DatabaseBrowseItemsView"
+			 x:DataType="vm:DatabaseItemsViewModel">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<ListBox Grid.Column="0" ItemsSource="{Binding EquipmentItems}" SelectedIndex="{Binding SelectedIndex}">
+			
+		</ListBox>
+		<Grid Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+				<RowDefinition></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<TextBox IsEnabled="False" Text="{Binding Name}" Grid.Row="0"></TextBox>
+			<TextBox IsEnabled="False" Text="{Binding Description}" Grid.Row="1"></TextBox>
+			<TextBox IsEnabled="False" Text="{Binding Rarity}" Grid.Row="2"></TextBox>
+			<TextBox IsEnabled="False" Text="{Binding Weight}" Grid.Row="3"></TextBox>
+			<TextBox IsEnabled="False" Text="{Binding Cost}" Grid.Row="4"></TextBox>
+			<CheckBox IsEnabled="False" Content="Czy jest magiczny?" IsChecked="{Binding Magical}" Grid.Row="5"></CheckBox>
+			<TextBox IsEnabled="False" Text="{Binding Alignment}" Grid.Row="6"></TextBox>
+			<TextBox IsEnabled="False" Text="{Binding EquipmentSource}" Grid.Row="7"></TextBox>
+		</Grid>
+	</Grid>
+</UserControl>

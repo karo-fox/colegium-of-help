@@ -16,4 +16,18 @@ public partial class RacialTrait
     public int Race { get; set; }
 
     public virtual Race RaceNavigation { get; set; } = null!;
+
+    public RacialTrait(int id, string name, string description, string refreshTime, int race)
+    {
+        Id = id;
+        Name = name;
+        Description = description;
+        RefreshTime = refreshTime;
+        Race = race;
+    }
+
+    public override string ToString()
+    {
+        return $"{Name}";
+    }
 }
