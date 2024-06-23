@@ -21,10 +21,18 @@
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
 			</Grid.RowDefinitions>
-			<TextBox IsEnabled="False" Text="{Binding BackgroundName}" Grid.Row="0"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding BackgroundProficiencies}" Grid.Row="1"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding BackgroundFeature}" Grid.Row="2"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding BackgroundSource}" Grid.Row="3"></TextBox>
+			<ScrollViewer Grid.Row="0">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding BackgroundName}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="1">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding BackgroundProficiencies}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="2">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding BackgroundFeature}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="3">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding BackgroundSource}" />
+			</ScrollViewer>
 		</Grid>
 	</Grid>
 </UserControl>

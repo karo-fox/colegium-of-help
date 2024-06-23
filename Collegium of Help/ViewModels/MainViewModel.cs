@@ -21,7 +21,7 @@ public class MainViewModel : ViewModelBase
 
         _tabItems =
         [
-            new TabItemViewModel(iconPath: "/Assets/home.svg", content: new HomeView(), tabName: "Home"),
+            //new TabItemViewModel(iconPath: "/Assets/home.svg", content: new HomeView(), tabName: "Home"),
             new TabItemViewModel(
                 iconPath: "/Assets/characters.svg",
                 content: new CharactersView { DataContext = new CharactersViewModel() },

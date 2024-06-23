@@ -26,11 +26,21 @@
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
 			</Grid.RowDefinitions>
-			<TextBox IsEnabled="False" Grid.Row="0" Text="{Binding RaceName}"></TextBox>
-			<TextBox IsEnabled="False" Grid.Row="1" Text="{Binding Size}"></TextBox>
-			<TextBox IsEnabled="False" Grid.Row="2" Text="{Binding Speed}"></TextBox>
-			<TextBox IsEnabled="False" Grid.Row="3" Text="{Binding Languages}"></TextBox>
-			<TextBox IsEnabled="False" Grid.Row="4" Text="{Binding RaceSource}"></TextBox>
+			<ScrollViewer Grid.Row="0">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding RaceName}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="1">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Size}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="2">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Speed}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="3">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Languages}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="4">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding RaceSource}" />
+			</ScrollViewer>
 		</Grid>
 		<ListBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding RacialTraits}" SelectedIndex="{Binding SelectedRaceAbility}">
 			
@@ -41,9 +51,15 @@
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
 			</Grid.RowDefinitions>
-			<TextBox IsEnabled="False" Grid.Row="0" Text="{Binding AbilityName}"></TextBox>
-			<TextBox IsEnabled="False" Grid.Row="1" Text="{Binding Description}"></TextBox>
-			<TextBox IsEnabled="False" Grid.Row="2" Text="{Binding Refresh}"></TextBox>
+			<ScrollViewer Grid.Row="0">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding AbilityName}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="1">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Description}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="2">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Refresh}" />
+			</ScrollViewer>
 		</Grid>
 	</Grid>
 </UserControl>
