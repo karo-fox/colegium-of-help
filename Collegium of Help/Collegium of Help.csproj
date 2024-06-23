@@ -27,9 +27,4 @@
     </PackageReference>
     <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.2" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DAL\Repositories\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
 </Project>

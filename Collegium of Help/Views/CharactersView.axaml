@@ -1,10 +1,12 @@
 <UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:app="clr-namespace:Collegium_of_Help"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:vm="using:Collegium_of_Help.ViewModels"
+			 xmlns:rxui="http://reactiveui.net"
              mc:Ignorable="d" d:DesignWidth="725" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.CharactersView"
 			 x:DataType="vm:CharactersViewModel">
-	<TextBlock>Placeholder text for Characters View</TextBlock>
+	<TransitioningContentControl Content="{Binding Content}" />
 </UserControl>
