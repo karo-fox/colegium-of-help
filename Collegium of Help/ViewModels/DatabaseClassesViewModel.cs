@@ -22,7 +22,7 @@ namespace Collegium_of_Help.ViewModels
             {
                 this.RaiseAndSetIfChanged(ref _selectedClass, value);
                 ClassName = Classes[_selectedClass].Name;
-                HitDie = Classes[_selectedClass].HitDie;
+                HitDie = Classes[_selectedClass].HitDieString;
                 Proficiencies = Classes[_selectedClass].Proficiencies;
                 Money = Classes[_selectedClass].Money;
                 Subclasses.Clear();
