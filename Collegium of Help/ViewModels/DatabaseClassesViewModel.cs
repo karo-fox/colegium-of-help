@@ -22,8 +22,8 @@ namespace Collegium_of_Help.ViewModels
             {
                 this.RaiseAndSetIfChanged(ref _selectedClass, value);
                 ClassName = Classes[_selectedClass].Name;
-                HitDie = Classes[_selectedClass].HitDie;
-                Proficiencies = Classes[_selectedClass].Proficiencies;
+                HitDie = Classes[_selectedClass].HitDieString;
+                Proficiencies = Classes[_selectedClass].ProficienciesString;
                 Money = Classes[_selectedClass].Money;
                 Subclasses.Clear();
                 Subclasses.Add(SubclassesRepository.GetSubclassesByClassId(Classes[_selectedClass].Id));

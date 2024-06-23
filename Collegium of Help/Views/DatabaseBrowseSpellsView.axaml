@@ -25,16 +25,34 @@
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
 			</Grid.RowDefinitions>
-			<TextBox IsEnabled="False" Text="{Binding SpellName, Mode=TwoWay}" Grid.Row="0"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding SpellLevel}" Grid.Row="1"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding SpellSchool}" Grid.Row="2"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding SpellCastingTime}" Grid.Row="3"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding SpellRange}" Grid.Row="4"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding SpellComponents}" Grid.Row="5"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding SpellDuration}" Grid.Row="6"></TextBox>
+			<ScrollViewer Grid.Row="0">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding SpellName}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="1">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding SpellLevel}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="2">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding SpellSchool}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="3">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding SpellCastingTime}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="4">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding SpellRange}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="5">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding SpellComponents}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="6">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding SpellDuration}" />
+			</ScrollViewer>
 			<CheckBox IsEnabled="False" Content="Wymaga koncentracji?" IsChecked="{Binding SpellConcentration}" Grid.Row="7"></CheckBox>
-			<TextBox IsEnabled="False" Text="{Binding SpellSavingThrow}" Grid.Row="8"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding SpellSource}" Grid.Row="9"></TextBox>
+			<ScrollViewer Grid.Row="8">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding SpellSavingThrow}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="9">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding SpellSource}" />
+			</ScrollViewer>
 		</Grid>
 	</Grid>
 </UserControl>

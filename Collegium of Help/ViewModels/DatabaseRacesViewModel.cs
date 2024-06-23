@@ -24,7 +24,7 @@ namespace Collegium_of_Help.ViewModels
                 RaceName = Races[_selectedRace].Name;
                 Size = Races[_selectedRace].Size;
                 Speed = Races[_selectedRace].Speed;
-                Languages = Races[_selectedRace].Languages;
+                Languages = Races[_selectedRace].LanguagesString;
                 RaceSource = SourcesRepository.GetById(Races[_selectedRace].SourceBook).Name;
                 RacialTraits.Clear();
                 RacialTraits.Add(RacialTraitRepository.GetTraitsByRaceId(_selectedRace+1));

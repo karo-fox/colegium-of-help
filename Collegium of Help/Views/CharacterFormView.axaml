@@ -1,0 +1,68 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:Collegium_of_Help.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Collegium_of_Help.Views.CharacterFormView"
+			 x:DataType="vm:CharacterFormViewModel">
+	<ScrollViewer>
+		<Grid>		
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="2*"/>
+				<RowDefinition Height="3*"/>
+				<RowDefinition Height="5*"/>
+			</Grid.RowDefinitions>
+
+			<StackPanel Grid.Row="0" Orientation="Horizontal">
+				<Button Content="Back" Command="{Binding BackCommand}" CommandParameter="{Binding BackCommandParameter}" />
+				<Button Content="Save" Command="{Binding SaveCommand}" />
+			</StackPanel>
+
+			<TextBox Grid.Row="1" Text="{Binding Name}" />
+			
+
+			<Grid Grid.Row="2">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+
+				<ComboBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Races}" SelectedItem="{Binding Race}" IsEnabled="True" />
+				<ComboBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Backgrounds}" SelectedItem="{Binding Background}" IsEnabled="True" />
+				<ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Classes}" SelectedItem="{Binding Class}" IsEnabled="True" />
+				<ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Subclasses}" SelectedItem="{Binding Subclass}" IsEnabled="{Binding IsSubclassEnabled}" />
+				<StackPanel Grid.Row="0" Grid.Column="2">
+					<NumericUpDown Value="{Binding CurrentHp}" Minimum="0" Maximum="{Binding TotalHp}" FormatString="0"/>
+					<TextBlock Text="{Binding TotalHpString}"/>
+				</StackPanel>
+				<NumericUpDown Grid.Row="1" Grid.Column="2" Value="{Binding Level}" Minimum="1" Maximum="20" FormatString="0" />
+			</Grid>
+
+			<ItemsControl Grid.Row="3" ItemsSource="{Binding Abilities}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<UniformGrid Rows="1" />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate x:DataType="vm:AbilityViewModel">
+						<StackPanel>
+							<TextBlock Text="{Binding Name}"/>
+							<TextBlock Text="{Binding ModifierString}"/>
+							<NumericUpDown x:Name="{Binding Name}" Value="{Binding Score}" Minimum="0" Maximum="20" FormatString="0"/>
+							<TextBlock Text="{Binding  SavingThrowString}"/>
+						</StackPanel>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</Grid>
+	</ScrollViewer>
+</UserControl>

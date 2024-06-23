@@ -15,7 +15,11 @@
 			<RowDefinition Height="5*"/>
 		</Grid.RowDefinitions>
 
-		<Button Grid.Row="0" Content="Back" Command="{Binding Host.GoToCharacterSelectionCommand}" />
+		<StackPanel Grid.Row="0" Orientation="Horizontal">
+			<Button Content="Edit" Command="{Binding Host.GoToCharacterFormCommand}" CommandParameter="{Binding Character}" />
+			<Button Content="Back" Command="{Binding Host.GoToCharacterSelectionCommand}" />
+		</StackPanel>
+
 		<TextBlock Grid.Row="1" Text="{Binding Name}" />
 		
 		<Grid Grid.Row="2">
@@ -78,7 +82,7 @@
 					</StackPanel>
 				</ScrollViewer>
 			</TabItem>
-			<TabItem Header="Equipment">
+			<!--<TabItem Header="Equipment">
 				<ScrollViewer>
 					<ItemsControl ItemsSource="{Binding Equipment}">
 						<ItemsControl.ItemTemplate>
@@ -88,7 +92,7 @@
 						</ItemsControl.ItemTemplate>
 					</ItemsControl>
 				</ScrollViewer>
-			</TabItem>
+			</TabItem>-->
 		</TabControl>
 	</Grid>
 </UserControl>

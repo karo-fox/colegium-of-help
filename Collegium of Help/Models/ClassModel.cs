@@ -24,8 +24,10 @@ namespace Collegium_of_Help.Models
             set => _class.Name = value;
         }
         public int Id { get => _class.Id; }
-        public string HitDie { get => $"1d{_class.HitDie}"; }
-        public string Proficiencies { get => $"{_class.SkillsProficienciesNum} z: {_class.SkillProficiencies};\nBiegłości w rzutach obronnych: {_class.SavingThrowProficiencies};\n{ _class.Proficiencies}"; }
+        public int HitDie { get => _class.HitDie; }
+        public string HitDieString { get => $"1d{_class.HitDie}"; }
+        public string[] Proficiencies { get => _class.Proficiencies.Split("; "); }
+        public string ProficienciesString { get => $"{_class.SkillsProficienciesNum} z: {_class.SkillProficiencies};\nBiegłości w rzutach obronnych: {_class.SavingThrowProficiencies};\n{ _class.Proficiencies}"; }
         public int Money { get => _class.Money; }
 
         public Dictionary<Ability, bool> SavingThrowProficiences

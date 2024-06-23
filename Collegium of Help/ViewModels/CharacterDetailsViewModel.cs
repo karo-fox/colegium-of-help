@@ -1,4 +1,5 @@
-﻿using Collegium_of_Help.Models;
+﻿using Collegium_of_Help.DAL.Repositories;
+using Collegium_of_Help.Models;
 using Org.BouncyCastle.Asn1.Mozilla;
 using ReactiveUI;
 using System;
@@ -7,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Collegium_of_Help.ViewModels
 {
@@ -24,7 +26,7 @@ namespace Collegium_of_Help.ViewModels
         {
             _character = character;
             _host = host;
-            _abilities = 
+            _abilities =
             [
                 new AbilityViewModel("STR", _character.GetAbilityModifier(Ability.Strength), _character.GetAbilityScore(Ability.Strength), _character.SavingThrowProficiencies.GetValueOrDefault(Ability.Strength, false),
                 [], _character.ProficiencyScore
@@ -50,6 +52,11 @@ namespace Collegium_of_Help.ViewModels
 
         }
 
+        public CharacterModel Character
+        {
+            get => _character;
+        }
+
         public string Name
         {
             get => _character.Name;
@@ -72,7 +79,7 @@ namespace Collegium_of_Help.ViewModels
         }
         public string Level
         {
-            get =>$"Level: { _character.Level}";
+            get => $"Level: {_character.Level}";
         }
         public string Hp
         {
@@ -96,31 +103,56 @@ namespace Collegium_of_Help.ViewModels
         }
     }
 
-    public class AbilityViewModel
+    public class AbilityViewModel : ViewModelBase
     {
         private int _savingThrowValue;
+        private int _score;
+        private int _modifier;
+        private string _modifierString;
+        private int _proficiencyScore;
+        private string _savingThrowString;
         public string Name { get; set; }
-        public int Modifier { get; set; }
+        public int Modifier
+        {
+            get => _modifier; set
+            {
+                this.RaiseAndSetIfChanged(ref _modifier, value);
+                ModifierString = Modifier.ToString("+0;-#");
+                _savingThrowValue = SavingThrowProficiency ? _proficiencyScore + Modifier : Modifier;
+                SavingThrowString = "Saving Throw: " + _savingThrowValue.ToString("+0;-#");
+            }
+        }
         public string ModifierString
         {
             get => Modifier.ToString("+0;-#");
+            set => this.RaiseAndSetIfChanged(ref _modifierString, value);
         }
-        public int Score { get; set; }
+        public int Score
+        {
+            get => _score;
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _score, value);
+                Modifier = (Score / 2) - 5;
+            }
+        }
         public bool SavingThrowProficiency { get; set; }
         public string SavingThrowString
         {
             get => "Saving Throw: " + _savingThrowValue.ToString("+0;-#");
+            set => this.RaiseAndSetIfChanged(ref _savingThrowString, value);
         }
         public SkillViewModel[] Skills { get; set; }
 
         public AbilityViewModel(string name, int modifier, int score, bool savingThrowProficiency, SkillViewModel[] skills, int proficiencyScore)
         {
             Name = name;
-            Modifier = modifier;
-            Score = score;
             SavingThrowProficiency = savingThrowProficiency;
+            _proficiencyScore = proficiencyScore;
+            //Modifier = modifier;
+            Score = score;
             Skills = skills;
-            _savingThrowValue = SavingThrowProficiency ? modifier + proficiencyScore : modifier;
+            //_savingThrowValue = SavingThrowProficiency ? modifier + _proficiencyScore : modifier;
         }
     }
 

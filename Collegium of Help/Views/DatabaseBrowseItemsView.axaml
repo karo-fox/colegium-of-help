@@ -25,15 +25,25 @@
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
 			</Grid.RowDefinitions>
-
-			<TextBox IsEnabled="False" Text="{Binding Name}" Grid.Row="0"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding Description}" Grid.Row="1"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding Rarity}" Grid.Row="2"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding Weight}" Grid.Row="3"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding Cost}" Grid.Row="4"></TextBox>
+			<ScrollViewer Grid.Row="0">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Name}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="1">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Description}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="2">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Rarity}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="3">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Weight}" />
+			</ScrollViewer>
 			<CheckBox IsEnabled="False" Content="Czy jest magiczny?" IsChecked="{Binding Magical}" Grid.Row="5"></CheckBox>
-			<TextBox IsEnabled="False" Text="{Binding Alignment}" Grid.Row="6"></TextBox>
-			<TextBox IsEnabled="False" Text="{Binding EquipmentSource}" Grid.Row="7"></TextBox>
+			<ScrollViewer Grid.Row="6">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Alignment}" />
+			</ScrollViewer>
+			<ScrollViewer Grid.Row="7">
+				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding EquipmentSource}" />
+			</ScrollViewer>
 		</Grid>
 	</Grid>
 </UserControl>
