@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Collegium_of_Help.ViewModels
 {
-    public class DatabaseBackgroundsViewModel : MainViewModel
+    public class DatabaseBackgroundsViewModel : ViewModelBase
     {
         #region Publiczne właściwości
         public ObservableCollection<Background> Backgrounds { get; set; }

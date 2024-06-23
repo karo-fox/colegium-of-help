@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Collegium_of_Help.ViewModels
 {
-    public class DatabaseRemoveViewModel
+    public class DatabaseRemoveViewModel : ViewModelBase
     {
     }
 }

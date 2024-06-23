@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Collegium_of_Help.ViewModels
 {
-    public class DatabaseClassesViewModel : MainViewModel
+    public class DatabaseClassesViewModel : ViewModelBase
     {
         #region Publiczne właściwości
         public ObservableCollection<Class> Classes { get; set; }

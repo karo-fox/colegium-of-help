@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Collegium_of_Help.ViewModels
 {
-    public class DatabaseRacesViewModel : MainViewModel
+    public class DatabaseRacesViewModel : ViewModelBase
     {
         #region Publiczne właściwości
         public ObservableCollection<Race> Races { get; set; }

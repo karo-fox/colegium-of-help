@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Collegium_of_Help.ViewModels
 {
-    public class DatabaseBrowseViewModel
+    public class DatabaseBrowseViewModel : ViewModelBase
     {
         private DatabaseModel databaseModel = new DatabaseModel();
         public ObservableCollection<Source> Sources { get; set; }

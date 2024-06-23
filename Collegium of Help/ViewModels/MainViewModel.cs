@@ -26,6 +26,7 @@ public class MainViewModel : ViewModelBase
                 iconPath: "/Assets/characters.svg",
                 content: new CharactersView { DataContext = new CharactersViewModel() },
                 tabName: "Characters"),
+            new TabItemViewModel(iconPath: "/Assets/database.svg", content: new DatabaseView(), tabName: "Database")
         ];
     }
 }

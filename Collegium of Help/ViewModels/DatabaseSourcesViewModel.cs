@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Collegium_of_Help.ViewModels
 {
-    public class DatabaseSourcesViewModel
+    public class DatabaseSourcesViewModel : ViewModelBase
     {
         public ObservableCollection<Source> Sources { get; set; }
         public DatabaseSourcesViewModel() 
