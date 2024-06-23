@@ -1,4 +1,6 @@
-﻿using Collegium_of_Help.Models.Entities;
+﻿using Collegium_of_Help.DAL.Repositories;
+using Collegium_of_Help.Models;
+using Collegium_of_Help.Models.Entities;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -12,21 +14,21 @@ namespace Collegium_of_Help.ViewModels
     public class DatabaseBackgroundsViewModel : ViewModelBase
     {
         #region Publiczne właściwości
-        public ObservableCollection<Background> Backgrounds { get; set; }
+        public ObservableCollection<BackgroundModel> Backgrounds { get => BackgroundsRepository.GetAll(); }
         public int SelectedIndex { get => _selectedIndex; set 
             {
                 this.RaiseAndSetIfChanged(ref _selectedIndex, value);
                 BackgroundName = Backgrounds[_selectedIndex].Name;
                 BackgroundProficiencies = Backgrounds[_selectedIndex].SkillProficiencies;
                 BackgroundFeature = Backgrounds[_selectedIndex].Feature;
-                BackgroundSource = Backgrounds[_selectedIndex].SourceBook;
+                BackgroundSource = SourcesRepository.GetById(Backgrounds[_selectedIndex].SourceBook).Name;
 
             }
         }
         public string BackgroundName { get => _backgroundName; set => this.RaiseAndSetIfChanged(ref _backgroundName, value); }
         public string BackgroundProficiencies { get => _backgroundProficiencies; set => this.RaiseAndSetIfChanged(ref _backgroundProficiencies, value); }
         public string BackgroundFeature { get => _backgroundFeature; set => this.RaiseAndSetIfChanged(ref _backgroundFeature, value); }
-        public int BackgroundSource { get => _backgroundSource; set => this.RaiseAndSetIfChanged(ref _backgroundSource, value); }
+        public string BackgroundSource { get => _backgroundSource; set => this.RaiseAndSetIfChanged(ref _backgroundSource, value); }
 
         #endregion
 
@@ -36,16 +38,13 @@ namespace Collegium_of_Help.ViewModels
         private string _backgroundName;
         private string _backgroundProficiencies;
         private string _backgroundFeature;
-        private int _backgroundSource;
+        private string _backgroundSource;
 
         #endregion
 
         #region Metody
         public DatabaseBackgroundsViewModel() 
         { 
-            Backgrounds = new ObservableCollection<Background>();
-            Backgrounds.Add(new Background(1, "Artysta", "Zestaw do charakteryzacji", "Korzyść: Jestem znany", 1));
-            Backgrounds.Add(new Background(2, "Pustelnik", "Kij", "Korzyść: Mam wiedzę", 1));
             SelectedIndex = 0;
         }
 

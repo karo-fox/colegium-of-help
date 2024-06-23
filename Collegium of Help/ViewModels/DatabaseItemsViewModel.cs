@@ -1,4 +1,5 @@
-﻿using Collegium_of_Help.Models.Entities;
+﻿using Collegium_of_Help.Models;
+using Collegium_of_Help.Models.Entities;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -6,13 +7,14 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Collegium_of_Help.DAL.Repositories;
 
 namespace Collegium_of_Help.ViewModels
 {
     public class DatabaseItemsViewModel : ViewModelBase
     {
         #region Publiczne właściwości
-        public ObservableCollection<Equipment> EquipmentItems { get; set; }
+        public ObservableCollection<EquipmentModel> EquipmentItems { get => EquipmentRepository.GetAll(); }
         public int SelectedIndex { get => _selectedIndex; set 
             {
                 this.RaiseAndSetIfChanged(ref _selectedIndex, value);
@@ -23,7 +25,7 @@ namespace Collegium_of_Help.ViewModels
                 Cost = EquipmentItems[_selectedIndex].Cost;
                 Alignment = EquipmentItems[_selectedIndex].Alignment;
                 Magical = EquipmentItems[_selectedIndex].Magic;
-                EquipmentSource = EquipmentItems[_selectedIndex].SourceBook;
+                EquipmentSource = SourcesRepository.GetById(EquipmentItems[_selectedIndex].SourceBook).Name;
             } }
         public string Name { get => _name; set => this.RaiseAndSetIfChanged(ref _name, value); }
         public string Description { get => _description; set => this.RaiseAndSetIfChanged(ref _description, value); }
@@ -32,7 +34,7 @@ namespace Collegium_of_Help.ViewModels
         public string Cost { get => _cost; set => this.RaiseAndSetIfChanged(ref _cost, value); }
         public bool Magical { get => _magical; set => this.RaiseAndSetIfChanged(ref _magical, value); }
         public string Alignment { get => _alignment; set => this.RaiseAndSetIfChanged(ref _alignment, value); }
-        public int EquipmentSource { get => _source; set => this.RaiseAndSetIfChanged(ref _source, value); }
+        public string EquipmentSource { get => _source; set => this.RaiseAndSetIfChanged(ref _source, value); }
         #endregion
         #region Prywatne właściwości
         private int _selectedIndex = 0;
@@ -43,14 +45,11 @@ namespace Collegium_of_Help.ViewModels
         private string _cost = String.Empty;
         private bool _magical = false;
         private string _alignment = String.Empty;
-        private int _source = 0;
+        private string _source = String.Empty;
         #endregion
         #region Metody
         public DatabaseItemsViewModel()
         {
-            EquipmentItems = new ObservableCollection<Equipment>();
-            EquipmentItems.Add(new Equipment(1, "Miecz", "Ostry", "pospolity", 1.5f, "50 sz", false, null, 1));
-            EquipmentItems.Add(new Equipment(2, "Ognisty miecz", "Ostry i parzy", "rzadki", 1.5f, "250 sz", true, "Wymaga zestrojenia z wojownikiem", 1));
             SelectedIndex = 0;
         }
         #endregion

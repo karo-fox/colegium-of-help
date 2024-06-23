@@ -1,4 +1,6 @@
-﻿using Collegium_of_Help.Models.Entities;
+﻿using Collegium_of_Help.Models;
+using Collegium_of_Help.DAL;
+using Collegium_of_Help.Models.Entities;
 using ReactiveUI;
 using System;
 using System.Collections.Generic;
@@ -6,13 +8,14 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Collegium_of_Help.DAL.Repositories;
 
 namespace Collegium_of_Help.ViewModels
 {
     public class DatabaseSpellsViewModel : ViewModelBase
     {
         #region Publiczne właściwości
-        public ObservableCollection<Spell> Spells { get; set; }
+        public ObservableCollection<SpellModel> Spells { get => SpellsRepository.GetAll(); }
         public int SelectedSpell {  get => _selectedSpell; 
             set
             {
@@ -26,7 +29,7 @@ namespace Collegium_of_Help.ViewModels
                 SpellDuration = Spells[_selectedSpell].Duration;
                 SpellConcentration = Spells[_selectedSpell].Concentration;
                 SpellSavingThrow = Spells[_selectedSpell].SavingThrow;
-                SpellSource = Spells[_selectedSpell].SourceBook.ToString();
+                SpellSource = SourcesRepository.GetById(Spells[_selectedSpell].SourceBook).Name;
             }
         }
         public string SpellName { get => _spellName; set => this.RaiseAndSetIfChanged(ref _spellName, value); }
@@ -38,7 +41,7 @@ namespace Collegium_of_Help.ViewModels
         public string SpellDuration { get => _spellDuration; set => this.RaiseAndSetIfChanged(ref _spellDuration, value); }
         public bool SpellConcentration { get => _spellConcentration; set => this.RaiseAndSetIfChanged(ref _spellConcentration, value); }
         public string SpellSavingThrow { get => _spellSavingThrow; set => this.RaiseAndSetIfChanged(ref _spellSavingThrow, value); }
-        public string SpellSource { get => Spells[SelectedSpell].SourceBook.ToString(); set => this.RaiseAndSetIfChanged(ref _spellSource, value); }
+        public string SpellSource { get => _spellSource; set => this.RaiseAndSetIfChanged(ref _spellSource, value); }
 
         #endregion
 
@@ -54,16 +57,13 @@ namespace Collegium_of_Help.ViewModels
         private string _spellDuration = String.Empty;
         private bool _spellConcentration = false;
         private string _spellSavingThrow = String.Empty;
-        private string _spellSource = String.Empty;
+        private string _spellSource;
 
         #endregion
 
         #region Metody
         public DatabaseSpellsViewModel()
         {
-            Spells = new ObservableCollection<Spell>();
-            Spells.Add(new Spell(1, "Czar", "sztuczka", "Iluzji", "1 minuta", "18m", "W, S", "1 godzina", false, "ZRC", 1));
-            Spells.Add(new Spell(2, "Czar2", "1", "Nekromancji", "1 akcja", "dotyk", "S", "natychmiastowe", true, null, 1));
             SelectedSpell = 0;
         }
 

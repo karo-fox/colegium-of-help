@@ -1,5 +1,4 @@
 ﻿using Collegium_of_Help.Models.Entities;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +7,15 @@ using System.Threading.Tasks;
 
 namespace Collegium_of_Help.Models
 {
-    public class SubclassModel
+    public class SourceModel
     {
-        private Subclass _subclass;
+        private Source _source;
 
-        public SubclassModel(Subclass subclass) => _subclass = subclass;
+        public SourceModel(Source source) => _source = source;
 
-        public int Id { get => _subclass.Id; }
-
-        public string Name
+        public String Name
         {
-            get => _subclass.Name;
+            get => _source.Name;
         }
 
         public override string ToString()

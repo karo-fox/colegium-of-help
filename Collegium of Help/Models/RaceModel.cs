@@ -18,5 +18,15 @@ namespace Collegium_of_Help.Models
             get => _race.Name;
             set => _race.Name = value;
         }
+
+        public string Size { get => _race.Size; }
+        public int Speed { get => _race.Speed; }
+        public string Languages { get => _race.Langauges; }
+        public int SourceBook { get => _race.SourceBook; }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

@@ -17,5 +17,14 @@ namespace Collegium_of_Help.Models
         {
             get => _background.Name;
         }
+
+        public string SkillProficiencies { get => _background.SkillProficiencies; }
+        public string Feature { get => _background.Feature; }
+        public int SourceBook {  get => _background.SourceBook; }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }
