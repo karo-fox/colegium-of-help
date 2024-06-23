@@ -71,13 +71,38 @@ namespace Collegium_of_Help.ViewModels
                 [], _character.ProficiencyScore
                 )
            ];
+
+            SaveCommand = ReactiveCommand.Create(Save);
         }
 
         public CharactersViewModel Host { get => _host; }
+        public ICommand SaveAndGoBack { get; }
         public ICommand BackCommand
         {
             get => _backCommand;
         }
+        public ICommand SaveCommand { get; }
+        private void Save()
+        {
+            _character.Name = this.Name;
+            _character.Class = this.Class;
+            _character.Subclass = this.Subclass;
+            _character.Race = this.Race;
+            _character.Background = this.Background;
+            _character.TotalHp = this.TotalHp;
+            _character.CurrentHp = this.CurrentHp;
+            _character.Level = this.Level;
+            _character.Strength = _abilities[0].Score;
+            _character.Dexterity = _abilities[1].Score;
+            _character.Constitution = _abilities[2].Score;
+            _character.Intelligence = _abilities[3].Score;
+            _character.Wisdom = _abilities[4].Score;
+            _character.Charisma = _abilities[5].Score;
+            _character.Proficiencies = this.Class.Proficiencies;
+            _character.Langauges = this.Race.Languages;
+            _character.WriteToDb();
+        }
+
         public CharacterModel? BackCommandParameter
         {
             get => _character.IsNew ? null : _character;

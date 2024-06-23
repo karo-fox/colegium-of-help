@@ -18,10 +18,11 @@ namespace Collegium_of_Help.Models
             get => _race.Name;
             set => _race.Name = value;
         }
-
+        public int Id { get => _race.Id; }
         public string Size { get => _race.Size; }
         public int Speed { get => _race.Speed; }
-        public string Languages { get => _race.Langauges; }
+        public string[] Languages { get => _race.Langauges.Split("; "); }
+        public string LanguagesString { get => _race.Langauges; }
         public int SourceBook { get => _race.SourceBook; }
 
         public override string ToString()

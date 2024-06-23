@@ -17,7 +17,7 @@ namespace Collegium_of_Help.Models
         {
             get => _background.Name;
         }
-
+        public int Id { get => _background.Id; }
         public string SkillProficiencies { get => _background.SkillProficiencies; }
         public string Feature { get => _background.Feature; }
         public int SourceBook {  get => _background.SourceBook; }

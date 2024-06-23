@@ -18,6 +18,7 @@
 
 			<StackPanel Grid.Row="0" Orientation="Horizontal">
 				<Button Content="Back" Command="{Binding BackCommand}" CommandParameter="{Binding BackCommandParameter}" />
+				<Button Content="Save" Command="{Binding SaveCommand}" />
 			</StackPanel>
 
 			<TextBox Grid.Row="1" Text="{Binding Name}" />
