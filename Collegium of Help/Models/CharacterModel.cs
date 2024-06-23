@@ -1,13 +1,8 @@
 ﻿using Collegium_of_Help.DAL.Repositories;
 using Collegium_of_Help.Models.Entities;
-using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
-using Org.BouncyCastle.Asn1;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Collegium_of_Help.Models
 {
@@ -22,18 +17,20 @@ namespace Collegium_of_Help.Models
     }
     public class CharacterModel
     {
-        private Character _character;
+        private Character _character = new Character();
 
-        private RaceModel _race;
-        private BackgroundModel _background;
-        private ClassModel _class;
-        private SubclassModel? _subclass;
+        private RaceModel? _race = null;
+        private BackgroundModel? _background = null;
+        private ClassModel? _class = null;
+        private SubclassModel? _subclass = null;
 
-        private ObservableCollection<EquipmentModel> _equipment;
+        private ObservableCollection<EquipmentModel> _equipment = [];
 
-        private Dictionary<string, bool> _skillProficiencies;
-        private string[] _proficiencies;
-        private string[] _langauges;
+        private Dictionary<string, bool> _skillProficiencies = new Dictionary<string, bool>();
+        private string[] _proficiencies = [];
+        private string[] _langauges = [];
+
+        private bool _isNew = true;
 
         public CharacterModel(Character character)
         {
@@ -45,19 +42,20 @@ namespace Collegium_of_Help.Models
             {
                 _subclass = SubclassesRepository.GetById((int)_character.Subclass);
             }
-            else
-                _subclass = null;
             _equipment = CharacterEquipmentsRepository.GetEquipmentByCharacterId(_character.Id);
             _proficiencies = _character.Proficiencies.Split("; ");
             _langauges = _character.Langauges.Split("; ");
+            _isNew = false;
         }
+
+        public CharacterModel() { }
 
         public string Name
         {
             get => _character.Name;
         }
 
-        public ClassModel Class
+        public ClassModel? Class
         {
             get => _class;
         }
@@ -67,12 +65,12 @@ namespace Collegium_of_Help.Models
             get => _subclass;
         }
 
-        public RaceModel Race
+        public RaceModel? Race
         {
             get => _race;
         }
 
-        public BackgroundModel Background
+        public BackgroundModel? Background
         {
             get => _background;
         }
@@ -99,7 +97,7 @@ namespace Collegium_of_Help.Models
         }
         public Dictionary<Ability, bool> SavingThrowProficiencies
         {
-            get => _class.SavingThrowProficiences;
+            get => _class?.SavingThrowProficiences ?? new Dictionary<Ability, bool>();
         }
         public string[] Proficiencies
         {
@@ -108,6 +106,10 @@ namespace Collegium_of_Help.Models
         public string[] Langauges
         {
             get => _langauges;
+        }
+        public bool IsNew
+        {
+            get => _isNew;
         }
         public int GetAbilityScore(Ability ability)
         {

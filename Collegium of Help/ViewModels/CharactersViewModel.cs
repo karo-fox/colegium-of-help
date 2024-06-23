@@ -22,6 +22,13 @@ namespace Collegium_of_Help.ViewModels
             Content = _characterSelectionViewModel;
             GoToCharacterDetailsCommand = ReactiveCommand.Create<CharacterModel>(GoToCharacterDetails);
             GoToCharacterSelectionCommand = ReactiveCommand.Create(GoToCharacterSelection);
+            GoToCharacterFormCommand = ReactiveCommand.Create<CharacterModel>(GoToCharacterForm);
+        }
+
+        public ICommand GoToCharacterFormCommand { get; }
+        private void GoToCharacterForm(CharacterModel? character)
+        {
+            Content = new CharacterFormViewModel(character ?? new CharacterModel(), this);
         }
 
         public ICommand GoToCharacterDetailsCommand { get; }

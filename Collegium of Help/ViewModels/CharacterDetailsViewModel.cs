@@ -50,6 +50,11 @@ namespace Collegium_of_Help.ViewModels
 
         }
 
+        public CharacterModel Character
+        {
+            get => _character;
+        }
+
         public string Name
         {
             get => _character.Name;
