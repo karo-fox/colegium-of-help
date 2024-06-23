@@ -29,7 +29,7 @@ namespace Collegium_of_Help.DAL.Repositories
         {
             using (var db = new AppDBContext())
             {
-                int lastId = db.Characters.OrderBy(e => e.Id).Last().Id;
+                int lastId = db.Characters.Any() ? db.Characters.OrderBy(e => e.Id).Last().Id : 0;
                 var characterEntity = character.IsNew ? db.Add(new Character { Id = lastId + 1 }).Entity : db.Characters.Single(e => e.Id == character.Id);
                 characterEntity.Name = character.Name;
                 characterEntity.Race = character.Race.Id;
@@ -45,8 +45,8 @@ namespace Collegium_of_Help.DAL.Repositories
                 characterEntity.Charisma = character.Charisma;
                 characterEntity.CurrentHp = character.CurrentHp;
                 characterEntity.TotalHp = character.TotalHp;
-                characterEntity.Proficiencies = String.Join("; ", character.Proficiencies);
-                characterEntity.Langauges = String.Join("; ", character.Langauges);
+                characterEntity.Proficiencies = String.Join(";", character.Proficiencies);
+                characterEntity.Langauges = String.Join(";", character.Langauges);
                 characterEntity.Equipment = 0;
                 db.SaveChanges();
             }

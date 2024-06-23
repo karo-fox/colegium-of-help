@@ -44,8 +44,8 @@ namespace Collegium_of_Help.Models
                 _subclass = SubclassesRepository.GetById((int)_character.Subclass);
             }
             _equipment = CharacterEquipmentsRepository.GetEquipmentByCharacterId(_character.Id);
-            _proficiencies = _character.Proficiencies.Split("; ");
-            _langauges = _character.Langauges.Split("; ");
+            _proficiencies = _character.Proficiencies.Split(";");
+            _langauges = _character.Langauges.Split(";");
             _isNew = false;
         }
 
