@@ -19,8 +19,8 @@ namespace Collegium_of_Help.ViewModels
             {
                 this.RaiseAndSetIfChanged(ref _selectedIndex, value);
                 BackgroundName = Backgrounds[_selectedIndex].Name;
-                BackgroundProficiencies = Backgrounds[_selectedIndex].SkillProficiencies;
-                BackgroundFeature = Backgrounds[_selectedIndex].Feature;
+                BackgroundProficiencies = $"Biegłości: {Backgrounds[_selectedIndex].SkillProficiencies}";
+                BackgroundFeature = $"Korzyść: {Backgrounds[_selectedIndex].Feature}";
                 BackgroundSource = SourcesRepository.GetById(Backgrounds[_selectedIndex].SourceBook).Name;
 
             }
@@ -34,7 +34,7 @@ namespace Collegium_of_Help.ViewModels
 
         #region Prywatne właściwości
 
-        private int _selectedIndex = 0;
+        private int _selectedIndex = -1;
         private string _backgroundName;
         private string _backgroundProficiencies;
         private string _backgroundFeature;
@@ -45,7 +45,6 @@ namespace Collegium_of_Help.ViewModels
         #region Metody
         public DatabaseBackgroundsViewModel() 
         { 
-            SelectedIndex = 0;
         }
 
         #endregion

@@ -21,14 +21,15 @@ namespace Collegium_of_Help.ViewModels
             {
                 this.RaiseAndSetIfChanged(ref _selectedSpell, value);
                 SpellName = Spells[_selectedSpell].Name;
-                SpellSchool = Spells[_selectedSpell].School;
-                SpellLevel = Spells[_selectedSpell].Level;
-                SpellCastingTime = Spells[_selectedSpell].CastingTime;
-                SpellRange = Spells[_selectedSpell].SpellRange;
-                SpellComponents = Spells[_selectedSpell].Components;
-                SpellDuration = Spells[_selectedSpell].Duration;
+                SpellSchool = $"Szkoła {Spells[_selectedSpell].School}";
+                if (Spells[_selectedSpell].Level != "sztuczka") SpellLevel = $"{Spells[_selectedSpell].Level} krąg";
+                else SpellLevel = Spells[_selectedSpell].Level;
+                SpellCastingTime = $"Czas rzucania: {Spells[_selectedSpell].CastingTime}";
+                SpellRange = $"Zasięg: {Spells[_selectedSpell].SpellRange}";
+                SpellComponents = $"Komponenty: {Spells[_selectedSpell].Components}";
+                SpellDuration = $"Czas trwania: {Spells[_selectedSpell].Duration}";
                 SpellConcentration = Spells[_selectedSpell].Concentration;
-                SpellSavingThrow = Spells[_selectedSpell].SavingThrow;
+                SpellSavingThrow = $"Wymaga rzutu obronnego: {Spells[_selectedSpell].SavingThrow}";
                 SpellSource = SourcesRepository.GetById(Spells[_selectedSpell].SourceBook).Name;
             }
         }
@@ -47,7 +48,7 @@ namespace Collegium_of_Help.ViewModels
 
         #region Prywatne właściwości
 
-        private int _selectedSpell = 0;
+        private int _selectedSpell = -1;
         private string _spellName = String.Empty;
         private string _spellSchool = String.Empty;
         private string _spellLevel = String.Empty;
@@ -64,7 +65,7 @@ namespace Collegium_of_Help.ViewModels
         #region Metody
         public DatabaseSpellsViewModel()
         {
-            SelectedSpell = 0;
+            
         }
 
         #endregion

@@ -22,9 +22,9 @@ namespace Collegium_of_Help.ViewModels
         public int SelectedRace { get => _selectedRace; set {
                 this.RaiseAndSetIfChanged(ref _selectedRace, value);
                 RaceName = Races[_selectedRace].Name;
-                Size = Races[_selectedRace].Size;
-                Speed = Races[_selectedRace].Speed;
-                Languages = Races[_selectedRace].LanguagesString;
+                Size = $"Rozmiar: {Races[_selectedRace].Size}";
+                Speed = $"Szybkość: {Races[_selectedRace].Speed} metrów";
+                Languages = $"Języki: {Races[_selectedRace].LanguagesString}";
                 RaceSource = SourcesRepository.GetById(Races[_selectedRace].SourceBook).Name;
                 RacialTraits.Clear();
                 RacialTraits.Add(RacialTraitRepository.GetTraitsByRaceId(_selectedRace+1));
@@ -40,12 +40,13 @@ namespace Collegium_of_Help.ViewModels
                 {
                     AbilityName = RacialTraits[_selectedRaceAbility].Name;
                     Description = RacialTraits[_selectedRaceAbility].Description;
-                    Refresh = RacialTraits[_selectedRaceAbility].RefreshTime;
+                    if(RacialTraits[_selectedRaceAbility].RefreshTime == "none") Refresh = $"Zawsze aktywna";
+                    else Refresh = $"Odnowienie: {RacialTraits[_selectedRaceAbility].RefreshTime}";
                 }
             } }
         public string RaceName { get => _raceName; set => this.RaiseAndSetIfChanged(ref _raceName, value); }
         public string Size { get => _size; set => this.RaiseAndSetIfChanged(ref _size, value); }
-        public int Speed { get => _speed; set => this.RaiseAndSetIfChanged(ref _speed, value); }
+        public string Speed { get => _speed; set => this.RaiseAndSetIfChanged(ref _speed, value); }
         public string Languages { get => _languages; set => this.RaiseAndSetIfChanged(ref _languages, value); }
         public string RaceSource { get => _source; set => this.RaiseAndSetIfChanged(ref _source, value); }
         public string AbilityName { get => _abilityName; set => this.RaiseAndSetIfChanged(ref _abilityName, value); }
@@ -53,11 +54,11 @@ namespace Collegium_of_Help.ViewModels
         public string Refresh { get => _refresh; set => this.RaiseAndSetIfChanged(ref _refresh, value); }
         #endregion
         #region Prywatne właściwości
-        private int _selectedRace = 0;
+        private int _selectedRace = -1;
         private int _selectedRaceAbility = -1;
         private string _raceName = String.Empty;
         private string _size = String.Empty;
-        private int _speed = 0;
+        private string _speed = String.Empty;
         private string _languages = String.Empty;
         private string _source = String.Empty;
         private string _abilityName = String.Empty;

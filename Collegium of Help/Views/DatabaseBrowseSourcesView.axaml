@@ -6,6 +6,15 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.DatabaseBrowseSourcesView"
 			 x:DataType="vm:DatabaseSourcesViewModel">
+	<UserControl.Styles>
+		<Style Selector="ListBox">
+			<Setter Property="Background" Value="Black"></Setter>
+			<Setter Property="VerticalAlignment" Value="Top"></Setter>
+		</Style>
+		<Style Selector="ListBoxItem">
+			<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+		</Style>
+	</UserControl.Styles>
 	<ListBox ItemsSource="{Binding Sources}">
         
 	</ListBox>

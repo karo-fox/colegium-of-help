@@ -6,6 +6,29 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.DatabaseBrowseSpellsView"
 			 x:DataType="vm:DatabaseSpellsViewModel">
+	<UserControl.Styles>
+		<Style Selector="ScrollViewer">
+			<Setter Property="Margin" Value="2"></Setter>
+			<Setter Property="Foreground" Value="White"></Setter>
+		</Style>
+		<Style Selector="TextBox">
+			<Setter Property="Margin" Value="0"></Setter>
+			<Setter Property="Padding" Value="10"></Setter>
+			<Setter Property="CornerRadius" Value="45"></Setter>
+			<Setter Property="TextAlignment" Value="Center"></Setter>
+		</Style>
+		<Style Selector="Border">
+			<Setter Property="Background" Value="Black"></Setter>
+			<Setter Property="CornerRadius" Value="45"></Setter>
+		</Style>
+		<Style Selector="ListBox">
+			<Setter Property="Background" Value="Black"></Setter>
+			<Setter Property="VerticalAlignment" Value="Top"></Setter>
+		</Style>
+		<Style Selector="ListBoxItem">
+			<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+		</Style>
+	</UserControl.Styles>
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition></ColumnDefinition>
@@ -46,7 +69,7 @@
 			<ScrollViewer Grid.Row="6">
 				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding SpellDuration}" />
 			</ScrollViewer>
-			<CheckBox IsEnabled="False" Content="Wymaga koncentracji?" IsChecked="{Binding SpellConcentration}" Grid.Row="7"></CheckBox>
+			<CheckBox HorizontalAlignment="Center" IsEnabled="False" Content="Wymaga koncentracji?" IsChecked="{Binding SpellConcentration}" Grid.Row="7"></CheckBox>
 			<ScrollViewer Grid.Row="8">
 				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding SpellSavingThrow}" />
 			</ScrollViewer>
