@@ -20,12 +20,12 @@
 						<TextBlock Text="{Binding Name}" />
 						<TextBlock Text="{Binding Class.Name}" />
 						<TextBlock Text="{Binding Race.Name}" />
-						<Button x:Name="CharacterDetails" Content="View" Command="{Binding $parent[ItemsControl].((vm:CharacterSelectionViewModel)DataContext).Host.GoToCharacterDetailsCommand}" CommandParameter="{Binding .}"/>
-						<Button Content="Remove" Command="{Binding $parent[ItemsControl].((vm:CharacterSelectionViewModel)DataContext).RemoveCommand}" CommandParameter="{Binding .}" />
+						<Button x:Name="CharacterDetails" Content="Zobacz" Command="{Binding $parent[ItemsControl].((vm:CharacterSelectionViewModel)DataContext).Host.GoToCharacterDetailsCommand}" CommandParameter="{Binding .}"/>
+						<Button Content="Usuń" Command="{Binding $parent[ItemsControl].((vm:CharacterSelectionViewModel)DataContext).RemoveCommand}" CommandParameter="{Binding .}" />
 					</StackPanel>
 				</DataTemplate>
 			</ItemsControl.ItemTemplate>
 		</ItemsControl>
-		<Button Content="New Character" Command="{Binding Host.GoToCharacterFormCommand}" />
+		<Button Content="Nowa postać" Command="{Binding Host.GoToCharacterFormCommand}" />
 	</Panel>
 </UserControl>

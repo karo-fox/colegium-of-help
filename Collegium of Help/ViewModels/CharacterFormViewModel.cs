@@ -147,7 +147,7 @@ namespace Collegium_of_Help.ViewModels
         }
         public ObservableCollection<SubclassModel> Subclasses
         {
-            get => _subclasses;
+            get => _class is not null ? SubclassesRepository.GetSubclassesByClassId(_class.Id) : [];
             set => this.RaiseAndSetIfChanged(ref _subclasses, value);
         }
         public bool IsSubclassEnabled
@@ -193,8 +193,9 @@ namespace Collegium_of_Help.ViewModels
         private int _calculateTotalHp()
         {
             int hit_die = _character.Class?.HitDie ?? 0;
-            int con = _character.GetAbilityModifier(Ability.Constitution);
-            return (hit_die + Level * hit_die + 2 * Level + 2 * Level * con - 2) / 2;
+            int con = _abilities[2].Modifier;
+            int result = (hit_die + Level * hit_die + 2 * Level + 2 * Level * con - 2) / 2;
+            return result >= 0 ? result : 0;
         }
     }
 }

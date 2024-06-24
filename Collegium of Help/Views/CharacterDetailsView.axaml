@@ -16,8 +16,8 @@
 		</Grid.RowDefinitions>
 
 		<StackPanel Grid.Row="0" Orientation="Horizontal">
-			<Button Content="Edit" Command="{Binding Host.GoToCharacterFormCommand}" CommandParameter="{Binding Character}" />
-			<Button Content="Back" Command="{Binding Host.GoToCharacterSelectionCommand}" />
+			<Button Content="Wróć" Command="{Binding Host.GoToCharacterSelectionCommand}" />
+			<Button Content="Edytuj" Command="{Binding Host.GoToCharacterFormCommand}" CommandParameter="{Binding Character}" />
 		</StackPanel>
 
 		<TextBlock Grid.Row="1" Text="{Binding Name}" />
