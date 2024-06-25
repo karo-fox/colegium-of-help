@@ -11,6 +11,7 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="1*"/>
 				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1*"/>
 				<RowDefinition Height="2*"/>
 				<RowDefinition Height="3*"/>
 				<RowDefinition Height="5*"/>
@@ -20,11 +21,13 @@
 				<Button Content="Wróć" Command="{Binding BackCommand}" CommandParameter="{Binding BackCommandParameter}" />
 				<Button Content="Zapisz" Command="{Binding SaveCommand}" />
 			</StackPanel>
+			
+			<TextBlock Grid.Row="1" Text="{Binding FormStatus}" />
 
-			<TextBox Grid.Row="1" Text="{Binding Name}" />
+			<TextBox Grid.Row="2" Text="{Binding Name}" />
 			
 
-			<Grid Grid.Row="2">
+			<Grid Grid.Row="3">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
@@ -46,7 +49,7 @@
 				<NumericUpDown Grid.Row="1" Grid.Column="2" Value="{Binding Level}" Minimum="1" Maximum="20" FormatString="0" />
 			</Grid>
 
-			<ItemsControl Grid.Row="3" ItemsSource="{Binding Abilities}">
+			<ItemsControl Grid.Row="4" ItemsSource="{Binding Abilities}">
 				<ItemsControl.ItemsPanel>
 					<ItemsPanelTemplate>
 						<UniformGrid Rows="1" />

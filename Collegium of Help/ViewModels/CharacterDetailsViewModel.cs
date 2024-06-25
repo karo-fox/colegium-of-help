@@ -128,6 +128,7 @@ namespace Collegium_of_Help.ViewModels
             get => Modifier.ToString("+0;-#");
             set => this.RaiseAndSetIfChanged(ref _modifierString, value);
         }
+        [Range(0, 20, ErrorMessage = "Umiejętność musi mieć wartość pomiędzy 0 a 20")]
         public int? Score
         {
             get => _score;
