@@ -6,15 +6,23 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.DatabaseBrowseView"
 			 x:DataType="vm:DatabaseViewModel">
+	<UserControl.Styles>
+		<Style Selector="Border">
+			<Setter Property="Background" Value="DarkGray"></Setter>
+			<Setter Property="CornerRadius" Value="45"></Setter>
+		</Style>
+	</UserControl.Styles>
 	<TabControl ItemsSource="{Binding}" TabStripPlacement="Left">
 		<TabControl.ItemTemplate>
 			<DataTemplate x:DataType="vm:TabItemViewModel">
-				<StackPanel Orientation="Horizontal">
-					<Panel Height="20" Width="20" Margin="10 10 10 10">
-						<Svg Path="{Binding IconPath}" />
-					</Panel>
-					<TextBlock Text="{Binding TabName}" VerticalAlignment="Center" />
-				</StackPanel>
+				<Border>
+					<StackPanel Orientation="Horizontal">
+						<Panel Height="20" Width="20" Margin="10 10 10 10">
+							<Svg Path="{Binding IconPath}" />
+						</Panel>
+						<TextBlock Text="{Binding TabName}" VerticalAlignment="Center" />
+					</StackPanel>
+				</Border>
 			</DataTemplate>
 		</TabControl.ItemTemplate>
 		<TabControl.ContentTemplate >

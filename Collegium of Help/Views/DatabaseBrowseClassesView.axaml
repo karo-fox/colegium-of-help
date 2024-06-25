@@ -6,6 +6,29 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.DatabaseBrowseClassesView"
 			 x:DataType="vm:DatabaseClassesViewModel">
+	<UserControl.Styles>
+		<Style Selector="ScrollViewer">
+			<Setter Property="Margin" Value="0"></Setter>
+			<Setter Property="Foreground" Value="White"></Setter>
+		</Style>
+		<Style Selector="TextBox">
+			<Setter Property="Margin" Value="0"></Setter>
+			<Setter Property="Padding" Value="10"></Setter>
+			<Setter Property="CornerRadius" Value="45"></Setter>
+			<Setter Property="TextAlignment" Value="Center"></Setter>
+		</Style>
+		<Style Selector="Border">
+			<Setter Property="Background" Value="Black"></Setter>
+			<Setter Property="CornerRadius" Value="45"></Setter>
+		</Style>
+		<Style Selector="ListBox">
+			<Setter Property="Background" Value="Black"></Setter>
+			<Setter Property="VerticalAlignment" Value="Top"></Setter>
+		</Style>
+		<Style Selector="ListBoxItem">
+			<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+		</Style>
+	</UserControl.Styles>
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition></ColumnDefinition>
@@ -13,19 +36,19 @@
 			<ColumnDefinition></ColumnDefinition>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
-			<RowDefinition></RowDefinition>
-			<RowDefinition></RowDefinition>
+			<RowDefinition Height="4*"></RowDefinition>
+			<RowDefinition Height="3*"></RowDefinition>
 		</Grid.RowDefinitions>
 
 		<ListBox Grid.Column="0" Grid.Row="0" ItemsSource="{Binding Classes}" SelectedIndex="{Binding SelectedClass}"></ListBox>
 		<ListBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding Subclasses}" SelectedIndex="{Binding SelectedSubclass}"></ListBox>
 		<Grid Grid.Column="2" Grid.Row="0">
 			<Grid.RowDefinitions>
-				<RowDefinition></RowDefinition>
-				<RowDefinition></RowDefinition>
-				<RowDefinition></RowDefinition>
-				<RowDefinition></RowDefinition>
-				<RowDefinition></RowDefinition>
+				<RowDefinition Height="1*"></RowDefinition>
+				<RowDefinition Height="1*"></RowDefinition>
+				<RowDefinition Height="3*"></RowDefinition>
+				<RowDefinition Height="1*"></RowDefinition>
+				<RowDefinition Height="1*"></RowDefinition>
 			</Grid.RowDefinitions>
 			
 			<ScrollViewer Grid.Row="0">
@@ -35,7 +58,9 @@
 				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding HitDie}" />
 			</ScrollViewer>
 			<ScrollViewer Grid.Row="2">
-				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Proficiencies}" />
+				<Border Background="Black" CornerRadius="45">
+					<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Proficiencies}" />
+				</Border>
 			</ScrollViewer>
 			<ScrollViewer Grid.Row="3">
 				<TextBox TextWrapping="Wrap" IsEnabled="False" Text="{Binding Money}" />
@@ -47,8 +72,8 @@
 		<ListBox Grid.Column="0" Grid.Row="2" ItemsSource="{Binding Traits}" SelectedIndex="{Binding SelectedAbility}"></ListBox>
 		<Grid Grid.Column="1" Grid.Row="1">
 			<Grid.RowDefinitions>
-				<RowDefinition></RowDefinition>
-				<RowDefinition></RowDefinition>
+				<RowDefinition Height="1*"></RowDefinition>
+				<RowDefinition Height="3*"></RowDefinition>
 			</Grid.RowDefinitions>
 
 			<ScrollViewer Grid.Row="0">

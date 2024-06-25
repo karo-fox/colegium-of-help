@@ -22,9 +22,9 @@ namespace Collegium_of_Help.ViewModels
             {
                 this.RaiseAndSetIfChanged(ref _selectedClass, value);
                 ClassName = Classes[_selectedClass].Name;
-                HitDie = Classes[_selectedClass].HitDieString;
+                HitDie = $"Kość Wytrzymałości: {Classes[_selectedClass].HitDieString}";
                 Proficiencies = Classes[_selectedClass].ProficienciesString;
-                Money = Classes[_selectedClass].Money;
+                Money = $"Budżet: {Classes[_selectedClass].Money} sz";
                 Subclasses.Clear();
                 Subclasses.Add(SubclassesRepository.GetSubclassesByClassId(Classes[_selectedClass].Id));
                 Traits.Clear();
@@ -72,7 +72,7 @@ namespace Collegium_of_Help.ViewModels
         public string ClassName { get => _className; set => this.RaiseAndSetIfChanged(ref _className, value); }
         public string HitDie { get => _hitDie; set => this.RaiseAndSetIfChanged(ref _hitDie, value); }
         public string Proficiencies { get => _proficiencies; set => this.RaiseAndSetIfChanged(ref _proficiencies, value); }
-        public int Money { get => _money; set => this.RaiseAndSetIfChanged(ref _money, value); }
+        public string Money { get => _money; set => this.RaiseAndSetIfChanged(ref _money, value); }
         public string SubclassName { get => _subclassName; set => this.RaiseAndSetIfChanged(ref _subclassName, value); }
         public string AbilityName { get => _abilityName; set => this.RaiseAndSetIfChanged(ref _abilityName, value); }
         public string Description { get => _description; set => this.RaiseAndSetIfChanged(ref _description, value); }
@@ -85,7 +85,7 @@ namespace Collegium_of_Help.ViewModels
         private string _hitDie = String.Empty;
         private string _proficiencies = String.Empty;
         private string _savingThrows = String.Empty;
-        private int _money = 0;
+        private string _money = String.Empty;
         private string _subclassName = String.Empty;
         private string _abilityName = String.Empty;
         private string _description = String.Empty;

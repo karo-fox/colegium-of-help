@@ -11,16 +11,23 @@
 		<!-- This only sets the DataContext for the previewer in an IDE,
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
 	</Design.DataContext>
-	
+	<UserControl.Styles>
+		<Style Selector="Border">
+			<Setter Property="Background" Value="DarkGray"></Setter>
+			<Setter Property="CornerRadius" Value="45"></Setter>
+		</Style>
+	</UserControl.Styles>
 	<TabControl x:Name="Tabs" ItemsSource="{Binding TabItems}" TabStripPlacement="Left">
 		<TabControl.ItemTemplate>
 			<DataTemplate x:DataType="vm:TabItemViewModel">
-				<StackPanel Orientation="Horizontal">
-					<Panel Height="20" Width="20" Margin="10 10 10 10">
-						<Svg Path="{Binding IconPath}" />
-					</Panel>
-					<TextBlock Text="{Binding TabName}" VerticalAlignment="Center" />
-				</StackPanel>
+				<Border>
+					<StackPanel Orientation="Horizontal">
+						<Panel Height="20" Width="20" Margin="10 10 10 10">
+							<Svg Path="{Binding IconPath}" />
+						</Panel>
+						<TextBlock Foreground="Black" Text="{Binding TabName}" VerticalAlignment="Center" />
+					</StackPanel>
+				</Border>
 			</DataTemplate>
 		</TabControl.ItemTemplate>
 		<TabControl.ContentTemplate >
