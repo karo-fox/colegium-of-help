@@ -3,7 +3,7 @@ DnD assistant application made as a project for university.
 
 # Configuration
 ## Database
-First, you have to build the database for the app. Use `schema.sql` file to create the database.
+First, you have to import the database for the app. Use `database.sql` file.
 
 In `Collegium of Help.Desktop` project directory, add `App.config` file. The file contents should be:
 ```
