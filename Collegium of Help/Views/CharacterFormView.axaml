@@ -81,7 +81,7 @@
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
 					<TextBlock Text="Poziom: "/>
-					<NumericUpDown Grid.Row="1" Grid.Column="2" Value="{Binding Level}" Minimum="1" Maximum="20" FormatString="0" />
+					<NumericUpDown Grid.Row="1" Grid.Column="2" Value="{Binding Level}" Minimum="1" Maximum="20" FormatString="0" Height="60" Width="300" />
 				</StackPanel>
 			</Grid>
 
