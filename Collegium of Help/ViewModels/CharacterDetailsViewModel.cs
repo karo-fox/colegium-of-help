@@ -5,6 +5,7 @@ using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,7 +107,7 @@ namespace Collegium_of_Help.ViewModels
     public class AbilityViewModel : ViewModelBase
     {
         private int _savingThrowValue;
-        private int _score;
+        private int _score = 10;
         private int _modifier;
         private string _modifierString;
         private int _proficiencyScore;
@@ -127,13 +128,14 @@ namespace Collegium_of_Help.ViewModels
             get => Modifier.ToString("+0;-#");
             set => this.RaiseAndSetIfChanged(ref _modifierString, value);
         }
-        public int Score
+        public int? Score
         {
             get => _score;
             set
             {
-                this.RaiseAndSetIfChanged(ref _score, value);
-                Modifier = (Score / 2) - 5;
+                _score = value ?? 10;
+                this.RaisePropertyChanged();
+                Modifier = ((int)Score / 2) - 5;
             }
         }
         public bool SavingThrowProficiency { get; set; }

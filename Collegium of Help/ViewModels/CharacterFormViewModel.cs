@@ -90,14 +90,14 @@ namespace Collegium_of_Help.ViewModels
             _character.Race = this.Race;
             _character.Background = this.Background;
             _character.TotalHp = this.TotalHp;
-            _character.CurrentHp = this.CurrentHp;
+            _character.CurrentHp = this.CurrentHp ?? this.TotalHp;
             _character.Level = this.Level;
-            _character.Strength = _abilities[0].Score;
-            _character.Dexterity = _abilities[1].Score;
-            _character.Constitution = _abilities[2].Score;
-            _character.Intelligence = _abilities[3].Score;
-            _character.Wisdom = _abilities[4].Score;
-            _character.Charisma = _abilities[5].Score;
+            _character.Strength = _abilities[0].Score ?? 10;
+            _character.Dexterity = _abilities[1].Score ?? 10;
+            _character.Constitution = _abilities[2].Score ?? 10;
+            _character.Intelligence = _abilities[3].Score ?? 10;
+            _character.Wisdom = _abilities[4].Score ?? 10;
+            _character.Charisma = _abilities[5].Score ?? 10;
             _character.Proficiencies = this.Class.Proficiencies;
             _character.Langauges = this.Race.Languages;
             _character.WriteToDb();
@@ -133,7 +133,11 @@ namespace Collegium_of_Help.ViewModels
         public ClassModel? Class
         {
             get => _class;
-            set => this.RaiseAndSetIfChanged(ref _class, value);
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _class, value);
+                Subclasses = SubclassesRepository.GetSubclassesByClassId(_class.Id);
+            }
         }
         public ObservableCollection<ClassModel> Classes
         {
@@ -166,10 +170,15 @@ namespace Collegium_of_Help.ViewModels
                 CurrentHp = TotalHp;
             }
         }
-        public int CurrentHp
+        public int? CurrentHp
         {
             get => _currentHp;
-            set => this.RaiseAndSetIfChanged(ref _currentHp, value);
+            set
+            {
+                _currentHp = value ?? _totalHp;
+                this.RaisePropertyChanged();
+
+            }
         }
         public int TotalHp
         {
