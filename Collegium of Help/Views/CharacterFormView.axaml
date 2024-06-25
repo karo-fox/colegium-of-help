@@ -72,7 +72,7 @@
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
 					<TextBlock Text="Podklasa: "/>
-					<ComboBox ItemsSource="{Binding Subclasses}" SelectedItem="{Binding Subclass}" />
+					<ComboBox ItemsSource="{Binding Subclasses}" SelectedItem="{Binding Subclass}" IsEnabled="{Binding IsSubclassEnabled}" />
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
 					<TextBlock Text="Punkty Wytrzymałości: "/>

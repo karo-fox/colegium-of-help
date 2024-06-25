@@ -193,7 +193,7 @@ namespace Collegium_of_Help.ViewModels
             {
                 this.RaiseAndSetIfChanged(ref _level, value);
                 IsSubclassEnabled = Level >= 3;
-                TotalHp = _character.CalculateTotalHp();
+                TotalHp = _character.CalculateTotalHp(Level, _abilities[2].Modifier);
                 CurrentHp = TotalHp;
             }
         }

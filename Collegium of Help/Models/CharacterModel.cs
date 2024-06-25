@@ -182,11 +182,12 @@ namespace Collegium_of_Help.Models
             return proficiency ? GetAbilityModifier(ability) + ProficiencyScore : GetAbilityModifier(ability);
         }
 
-        public int CalculateTotalHp()
+        public int CalculateTotalHp(int? level, int? con)
         {
+            if (level == null) { level = Level; }
+            if (con == null) { con = GetAbilityModifier(Ability.Constitution); }
             int hit_die = _class?.HitDie ?? 0;
-            int con = GetAbilityModifier(Ability.Constitution);
-            int result = (hit_die + Level * hit_die + 2 * Level + 2 * Level * con - 2) / 2;
+            int result = (hit_die + (int)level * hit_die + 2 * (int)level + 2 * (int)level * (int)con - 2) / 2;
             return result >= 0 ? result : 0;
         }
     }
