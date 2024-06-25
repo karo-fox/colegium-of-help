@@ -5,14 +5,14 @@
 			 xmlns:vm="clr-namespace:Collegium_of_Help.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.DatabaseBrowseView"
-			 x:DataType="vm:DatabaseViewModel">
+			 x:DataType="vm:DatabaseBrowseViewModel">
 	<UserControl.Styles>
 		<Style Selector="Border">
 			<Setter Property="Background" Value="DarkGray"></Setter>
 			<Setter Property="CornerRadius" Value="45"></Setter>
 		</Style>
 	</UserControl.Styles>
-	<TabControl ItemsSource="{Binding}" TabStripPlacement="Left">
+	<TabControl ItemsSource="{Binding TabItems}" TabStripPlacement="Left">
 		<TabControl.ItemTemplate>
 			<DataTemplate x:DataType="vm:TabItemViewModel">
 				<Border>

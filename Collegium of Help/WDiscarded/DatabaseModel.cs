@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 
 
-namespace Collegium_of_Help.Models
+namespace Collegium_of_Help.WDiscarded
 {
     public class DatabaseModel
-    { 
+    {
         public List<Source> Sources { get; set; }
         //private AppDBContext db = new AppDBContext();
-        public DatabaseModel() 
+        public DatabaseModel()
         {
             /*
             using (var db = new AppDBContext())

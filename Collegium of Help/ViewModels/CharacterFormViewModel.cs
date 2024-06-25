@@ -123,10 +123,6 @@ namespace Collegium_of_Help.ViewModels
             get => _character.IsNew ? null : _character;
         }
 
-        //private IObservable<bool> CanSave =
-        //    Class is not null && Race is not null && Background is not null && _abilities.All(a => a.Score is not null && 0 <= a.Score && a.Score <= 20)
-        //    && CurrentHp <= TotalHp && CurrentHp >= 0 && 0 <= Level && Level <= 20;
-
         public string FormStatus
         {
             get => _formStatus;
@@ -197,7 +193,7 @@ namespace Collegium_of_Help.ViewModels
             {
                 this.RaiseAndSetIfChanged(ref _level, value);
                 IsSubclassEnabled = Level >= 3;
-                TotalHp = _calculateTotalHp();
+                TotalHp = _character.CalculateTotalHp();
                 CurrentHp = TotalHp;
             }
         }
@@ -229,14 +225,6 @@ namespace Collegium_of_Help.ViewModels
         public AbilityViewModel[] Abilities
         {
             get => _abilities;
-        }
-
-        private int _calculateTotalHp()
-        {
-            int hit_die = _character.Class?.HitDie ?? 0;
-            int con = _abilities[2].Modifier;
-            int result = (hit_die + Level * hit_die + 2 * Level + 2 * Level * con - 2) / 2;
-            return result >= 0 ? result : 0;
         }
     }
 }

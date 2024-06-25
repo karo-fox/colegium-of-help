@@ -12,7 +12,7 @@
 			<Setter Property="CornerRadius" Value="45"></Setter>
 		</Style>
 	</UserControl.Styles>
-	<TabControl ItemsSource="{Binding}" TabStripPlacement="Top">
+	<TabControl ItemsSource="{Binding TabItems}" TabStripPlacement="Top">
 		<TabControl.ItemTemplate>
 			<DataTemplate x:DataType="vm:TabItemViewModel">
 				<Border>
