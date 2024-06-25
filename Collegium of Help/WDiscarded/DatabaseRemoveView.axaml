@@ -3,9 +3,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:vm="using:Collegium_of_Help.ViewModels"
+			 xmlns:discarded="using:Collegium_of_Help.WDiscarded"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.DatabaseRemoveView"
-			 x:DataType="vm:DatabaseRemoveViewModel">
+			 x:DataType="discarded:DatabaseRemoveViewModel">
 	<TabControl ItemsSource="{Binding}" TabStripPlacement="Left">
 		<TabControl.ItemTemplate>
 			<DataTemplate x:DataType="vm:TabItemViewModel">

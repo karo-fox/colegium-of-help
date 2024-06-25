@@ -16,13 +16,19 @@
 			</ItemsControl.ItemsPanel>
 			<ItemsControl.ItemTemplate>
 				<DataTemplate>
-					<StackPanel>
-						<TextBlock Text="{Binding Name}" />
-						<TextBlock Text="{Binding Class.Name}" />
-						<TextBlock Text="{Binding Race.Name}" />
-						<Button x:Name="CharacterDetails" Content="Zobacz" Command="{Binding $parent[ItemsControl].((vm:CharacterSelectionViewModel)DataContext).Host.GoToCharacterDetailsCommand}" CommandParameter="{Binding .}"/>
-						<Button Content="Usuń" Command="{Binding $parent[ItemsControl].((vm:CharacterSelectionViewModel)DataContext).RemoveCommand}" CommandParameter="{Binding .}" />
-					</StackPanel>
+					<Border BorderThickness="1" BorderBrush="AntiqueWhite" Margin="20" CornerRadius="45">
+						<StackPanel Margin="20">
+							<TextBlock Margin="0,10" FontSize="20" Text="{Binding Name}" />
+							<StackPanel Margin="0,5" Orientation="Vertical">
+								<TextBlock Margin="5,0" Text="{Binding Class.Name}" />
+								<TextBlock Margin="5,0" Text="{Binding Race.Name}" />
+							</StackPanel>
+							<StackPanel Margin="0,5" Orientation="Horizontal">
+								<Button Margin="10,0" x:Name="CharacterDetails" Content="Zobacz" Command="{Binding $parent[ItemsControl].((vm:CharacterSelectionViewModel)DataContext).Host.GoToCharacterDetailsCommand}" CommandParameter="{Binding .}"/>
+								<Button Margin="10,0" Content="Usuń" Command="{Binding $parent[ItemsControl].((vm:CharacterSelectionViewModel)DataContext).RemoveCommand}" CommandParameter="{Binding .}" />
+							</StackPanel>
+						</StackPanel>
+					</Border>
 				</DataTemplate>
 			</ItemsControl.ItemTemplate>
 		</ItemsControl>

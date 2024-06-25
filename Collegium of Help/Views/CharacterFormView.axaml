@@ -6,9 +6,27 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.CharacterFormView"
 			 x:DataType="vm:CharacterFormViewModel">
+	<UserControl.Styles>
+		<Style Selector="TextBlock">
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+		<Style Selector="ComboBox">
+			<Setter Property="VerticalAlignment" Value="Center" />
+			<Setter Property="Margin" Value="10,0" />
+			<Setter Property="Width" Value="200" />
+		</Style>
+		<Style Selector="NumericUpDown">
+			<Setter Property="Width" Value="150" />
+			<Setter Property="Height" Value="50" />
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="Margin" Value="10,0" />
+		</Style>
+	</UserControl.Styles>
 	<ScrollViewer>
 		<Grid>		
 			<Grid.RowDefinitions>
+				<RowDefinition Height="1*"/>
 				<RowDefinition Height="1*"/>
 				<RowDefinition Height="1*"/>
 				<RowDefinition Height="2*"/>
@@ -20,11 +38,16 @@
 				<Button Content="Wróć" Command="{Binding BackCommand}" CommandParameter="{Binding BackCommandParameter}" />
 				<Button Content="Zapisz" Command="{Binding SaveCommand}" />
 			</StackPanel>
+			
+			<TextBlock Grid.Row="1" Text="{Binding FormStatus}" />
 
-			<TextBox Grid.Row="1" Text="{Binding Name}" />
+			<StackPanel Orientation="Horizontal" Grid.Row="2">
+				<TextBlock Text="Nazwa:" />
+				<TextBox Text="{Binding Name}" Width="500" VerticalAlignment="Center" Margin="10,0" />
+			</StackPanel>
 			
 
-			<Grid Grid.Row="2">
+			<Grid Grid.Row="3">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
@@ -35,18 +58,34 @@
 					<RowDefinition />
 				</Grid.RowDefinitions>
 
-				<ComboBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Races}" SelectedItem="{Binding Race}" IsEnabled="True" />
-				<ComboBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Backgrounds}" SelectedItem="{Binding Background}" IsEnabled="True" />
-				<ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Classes}" SelectedItem="{Binding Class}" IsEnabled="True" />
-				<ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Subclasses}" SelectedItem="{Binding Subclass}" IsEnabled="{Binding IsSubclassEnabled}" />
-				<StackPanel Grid.Row="0" Grid.Column="2">
+				<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+					<TextBlock Text="Rasa: "/>
+					<ComboBox ItemsSource="{Binding Races}" SelectedItem="{Binding Race}" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+					<TextBlock Text="Pochodzenie: "/>
+					<ComboBox ItemsSource="{Binding Backgrounds}" SelectedItem="{Binding Background}" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+					<TextBlock Text="Klasa: "/>
+					<ComboBox ItemsSource="{Binding Classes}" SelectedItem="{Binding Class}" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+					<TextBlock Text="Podklasa: "/>
+					<ComboBox ItemsSource="{Binding Subclasses}" SelectedItem="{Binding Subclass}" />
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+					<TextBlock Text="Punkty Wytrzymałości: "/>
 					<NumericUpDown Value="{Binding CurrentHp}" Minimum="0" Maximum="{Binding TotalHp}" FormatString="0"/>
 					<TextBlock Text="{Binding TotalHpString}"/>
 				</StackPanel>
-				<NumericUpDown Grid.Row="1" Grid.Column="2" Value="{Binding Level}" Minimum="1" Maximum="20" FormatString="0" />
+				<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+					<TextBlock Text="Poziom: "/>
+					<NumericUpDown Grid.Row="1" Grid.Column="2" Value="{Binding Level}" Minimum="1" Maximum="20" FormatString="0" Height="60" Width="300" />
+				</StackPanel>
 			</Grid>
 
-			<ItemsControl Grid.Row="3" ItemsSource="{Binding Abilities}">
+			<ItemsControl Grid.Row="4" ItemsSource="{Binding Abilities}">
 				<ItemsControl.ItemsPanel>
 					<ItemsPanelTemplate>
 						<UniformGrid Rows="1" />
@@ -57,7 +96,7 @@
 						<StackPanel>
 							<TextBlock Text="{Binding Name}"/>
 							<TextBlock Text="{Binding ModifierString}"/>
-							<NumericUpDown x:Name="{Binding Name}" Value="{Binding Score}" Minimum="0" Maximum="20" FormatString="0"/>
+							<NumericUpDown x:Name="{Binding Name}" Value="{Binding Score}" Minimum="0" Maximum="20" FormatString="0" />
 							<TextBlock Text="{Binding  SavingThrowString}"/>
 						</StackPanel>
 					</DataTemplate>

@@ -1,9 +1,13 @@
 ﻿using Avalonia.Markup.Xaml.MarkupExtensions;
 using Collegium_of_Help.DAL.Repositories;
 using Collegium_of_Help.Models;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using ReactiveUI;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Windows.Input;
 
 namespace Collegium_of_Help.ViewModels
@@ -13,6 +17,8 @@ namespace Collegium_of_Help.ViewModels
         private CharactersViewModel _host;
         private CharacterModel _character;
         private ICommand _backCommand;
+
+        private string _formStatus = "";
 
         private string _name;
         private RaceModel? _race;
@@ -72,11 +78,19 @@ namespace Collegium_of_Help.ViewModels
                 )
            ];
 
-            SaveCommand = ReactiveCommand.Create(Save);
+            CanSave = this.WhenAnyValue(
+                x => x.Class, x => x.Race, x => x.Background, x => x.Abilities, x => x.CurrentHp, x => x.Level,
+                (@class, race, background, abilities, currentHp, level)
+                    => @class is not null && race is not null && background is not null &&
+                    abilities.All(a => a.Score is not null && 0 <= a.Score && a.Score <= 20) &&
+                    0 <= currentHp && currentHp <= TotalHp && 0 <= level && level <= 20
+            ); ;
+
+            SaveCommand = ReactiveCommand.Create(Save, CanSave);
         }
 
         public CharactersViewModel Host { get => _host; }
-        public ICommand SaveAndGoBack { get; }
+        private IObservable<bool> CanSave;
         public ICommand BackCommand
         {
             get => _backCommand;
@@ -90,28 +104,38 @@ namespace Collegium_of_Help.ViewModels
             _character.Race = this.Race;
             _character.Background = this.Background;
             _character.TotalHp = this.TotalHp;
-            _character.CurrentHp = this.CurrentHp;
+            _character.CurrentHp = this.CurrentHp ?? this.TotalHp;
             _character.Level = this.Level;
-            _character.Strength = _abilities[0].Score;
-            _character.Dexterity = _abilities[1].Score;
-            _character.Constitution = _abilities[2].Score;
-            _character.Intelligence = _abilities[3].Score;
-            _character.Wisdom = _abilities[4].Score;
-            _character.Charisma = _abilities[5].Score;
+            _character.Strength = _abilities[0].Score ?? 10;
+            _character.Dexterity = _abilities[1].Score ?? 10;
+            _character.Constitution = _abilities[2].Score ?? 10;
+            _character.Intelligence = _abilities[3].Score ?? 10;
+            _character.Wisdom = _abilities[4].Score ?? 10;
+            _character.Charisma = _abilities[5].Score ?? 10;
             _character.Proficiencies = this.Class.Proficiencies;
             _character.Langauges = this.Race.Languages;
             _character.WriteToDb();
+            FormStatus = "Zmiany zapisano ";
         }
 
         public CharacterModel? BackCommandParameter
         {
             get => _character.IsNew ? null : _character;
         }
+
+        public string FormStatus
+        {
+            get => _formStatus;
+            set => this.RaiseAndSetIfChanged(ref _formStatus, value);
+        }
+
+        [Required(ErrorMessage = "Pole wymagane")]
         public string Name
         {
             get => _name;
             set => this.RaiseAndSetIfChanged(ref _name, value);
         }
+        [Required(ErrorMessage = "Pole wymagane")]
         public RaceModel? Race
         {
             get => _race;
@@ -121,6 +145,7 @@ namespace Collegium_of_Help.ViewModels
         {
             get => _races;
         }
+        [Required(ErrorMessage = "Pole wymagane")]
         public BackgroundModel? Background
         {
             get => _background;
@@ -130,10 +155,15 @@ namespace Collegium_of_Help.ViewModels
         {
             get => _backgrounds;
         }
+        [Required(ErrorMessage = "Pole wymagane")]
         public ClassModel? Class
         {
             get => _class;
-            set => this.RaiseAndSetIfChanged(ref _class, value);
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _class, value);
+                Subclasses = SubclassesRepository.GetSubclassesByClassId(_class.Id);
+            }
         }
         public ObservableCollection<ClassModel> Classes
         {
@@ -155,6 +185,7 @@ namespace Collegium_of_Help.ViewModels
             get => Level >= 3;
             set => this.RaiseAndSetIfChanged(ref _isSubclassEnabled, value);
         }
+        [Range(1, 20, ErrorMessage ="Wartość musi być pomiędzy o a 20")]
         public int Level
         {
             get => _level;
@@ -162,14 +193,20 @@ namespace Collegium_of_Help.ViewModels
             {
                 this.RaiseAndSetIfChanged(ref _level, value);
                 IsSubclassEnabled = Level >= 3;
-                TotalHp = _calculateTotalHp();
+                TotalHp = _character.CalculateTotalHp();
                 CurrentHp = TotalHp;
             }
         }
-        public int CurrentHp
+        [Range(0, 300)]
+        public int? CurrentHp
         {
             get => _currentHp;
-            set => this.RaiseAndSetIfChanged(ref _currentHp, value);
+            set
+            {
+                _currentHp = value ?? _totalHp;
+                this.RaisePropertyChanged();
+
+            }
         }
         public int TotalHp
         {
@@ -188,14 +225,6 @@ namespace Collegium_of_Help.ViewModels
         public AbilityViewModel[] Abilities
         {
             get => _abilities;
-        }
-
-        private int _calculateTotalHp()
-        {
-            int hit_die = _character.Class?.HitDie ?? 0;
-            int con = _abilities[2].Modifier;
-            int result = (hit_die + Level * hit_die + 2 * Level + 2 * Level * con - 2) / 2;
-            return result >= 0 ? result : 0;
         }
     }
 }

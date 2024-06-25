@@ -6,6 +6,15 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.CharacterDetailsView"
              x:DataType="vm:CharacterDetailsViewModel">
+	<UserControl.Styles>
+		<Style Selector="TextBlock">
+			<Setter Property="VerticalAlignment" Value="Center" />
+			<Setter Property="Margin" Value="10,0" />
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="Margin" Value="10,0" />
+		</Style>
+	</UserControl.Styles>
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="1*"/>
@@ -20,8 +29,12 @@
 			<Button Content="Edytuj" Command="{Binding Host.GoToCharacterFormCommand}" CommandParameter="{Binding Character}" />
 		</StackPanel>
 
-		<TextBlock Grid.Row="1" Text="{Binding Name}" />
-		
+		<StackPanel Orientation="Horizontal" Grid.Row="1">
+			<TextBlock Text="Nazwa:" />
+			<TextBlock Text="{Binding Name}" />
+		</StackPanel>
+
+
 		<Grid Grid.Row="2">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
@@ -32,13 +45,31 @@
 				<RowDefinition />
 				<RowDefinition />
 			</Grid.RowDefinitions>
-			
-			<TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding RaceName}" />
-			<TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding BackgroundName}" />
-			<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ClassName}" />
-			<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SubclassName}" />
-			<TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Hp}" />
-			<TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Level}" />
+
+			<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+				<TextBlock Text="Rasa: "/>
+				<TextBlock Text="{Binding RaceName}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+				<TextBlock Text="Pochodzenie: "/>
+				<TextBlock Text="{Binding BackgroundName}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+				<TextBlock Text="Klasa: "/>
+				<TextBlock Text="{Binding ClassName}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+				<TextBlock Text="Podklasa: "/>
+				<TextBlock Text="{Binding SubclassName}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+				<TextBlock Text="Punkty Wytrzymałości: "/>
+				<TextBlock Text="{Binding Hp}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+				<TextBlock Text="Poziom: "/>
+				<TextBlock Text="{Binding Level}" />
+			</StackPanel>
 		</Grid>
 
 		<ItemsControl Grid.Row="3" ItemsSource="{Binding Abilities}">
@@ -53,7 +84,7 @@
 						<TextBlock Text="{Binding Name}"/>
 						<TextBlock Text="{Binding ModifierString}"/>
 						<TextBlock Text="{Binding Score}"/>
-						<TextBlock Text="{Binding  SavingThrowString}"/>
+						<TextBlock Text="{Binding SavingThrowString}"/>
 					</StackPanel>
 				</DataTemplate>
 			</ItemsControl.ItemTemplate>

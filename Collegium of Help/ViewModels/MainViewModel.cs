@@ -14,7 +14,6 @@ public class MainViewModel : ViewModelBase
     public TabItemViewModel[] TabItems
     {
         get => _tabItems;
-        set => this.RaiseAndSetIfChanged(ref _tabItems, value);
     }
     public MainViewModel()
     {
@@ -26,7 +25,7 @@ public class MainViewModel : ViewModelBase
                 iconPath: "/Assets/characters.svg",
                 content: new CharactersView { DataContext = new CharactersViewModel() },
                 tabName: "Postacie"),
-            new TabItemViewModel(iconPath: "/Assets/database.svg", content: new DatabaseView(), tabName: "Podręcznik")
+            new TabItemViewModel(iconPath: "/Assets/database.svg", content: new DatabaseView { DataContext = new DatabaseViewModel() }, tabName: "Podręcznik")
         ];
     }
 }

@@ -8,5 +8,11 @@
              mc:Ignorable="d" d:DesignWidth="725" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.CharactersView"
 			 x:DataType="vm:CharactersViewModel">
+	<UserControl.Styles>
+		<Style Selector="Border">
+			<Setter Property="Background" Value="" />
+			<Setter Property="CornerRadius" Value="0,0,0,0" />
+		</Style>
+	</UserControl.Styles>
 	<TransitioningContentControl Content="{Binding Content}" />
 </UserControl>

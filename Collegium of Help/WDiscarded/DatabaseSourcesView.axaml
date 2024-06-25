@@ -5,7 +5,7 @@
 			 xmlns:vm="using:Collegium_of_Help.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Collegium_of_Help.Views.DatabaseSourcesView"
-			 x:DataType="vm:DatabaseViewModel">
+			 x:DataType="vm:DatabaseSourcesViewModel">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition></RowDefinition>
